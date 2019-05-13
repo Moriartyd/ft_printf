@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/13 19:37:26 by cpollich          #+#    #+#             */
-/*   Updated: 2019/05/13 19:37:29 by cpollich         ###   ########.fr       */
+/*   Created: 2019/05/13 21:10:18 by cpollich          #+#    #+#             */
+/*   Updated: 2019/05/13 21:30:15 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *form, ...)
+v_struct	*take_until_f(v_struct var, const char *form)
 {
+	int i;
+	char *buf;
+	ft_putstr(ft_copyuntil(form, "%"));
 
 }
