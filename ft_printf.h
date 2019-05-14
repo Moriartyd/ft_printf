@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: moriartyd <moriartyd@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 19:37:35 by cpollich          #+#    #+#             */
-/*   Updated: 2019/05/13 21:44:16 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/05/14 09:10:27 by moriartyd        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include <stdarg.h>
 # include <stdio.h>
 # include "libft/includes/libft.h"
+
+/*
+** Defining speces and flags
+*/
 
 # define S_CHAR 'c'
 # define S_STRING 's'
