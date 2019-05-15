@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moriartyd <moriartyd@student.42.fr>        +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 19:37:35 by cpollich          #+#    #+#             */
-/*   Updated: 2019/05/14 09:10:27 by moriartyd        ###   ########.fr       */
+/*   Updated: 2019/05/15 20:05:31 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "libft/includes/libft.h"
 
 /*
-** Defining speces and flags
+** Defining speces
 */
 
 # define S_CHAR 'c'
@@ -34,11 +34,19 @@
 # define S_UNSIGNEDL 'U'
 # define S_FLOAT 'f'
 
+/*
+** defining format flags
+*/
+
 # define F_MINUS (1 << 0)
 # define F_ZERO (1 << 1)
 # define F_PLUS (1 << 2)
 # define F_SHARP (1 << 3)
 # define F_SPACE (1 << 4)
+
+/*
+** defining length flags
+*/
 
 # define F_HH (1 << 5)
 # define F_H (1 << 6)
