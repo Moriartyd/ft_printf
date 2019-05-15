@@ -1,37 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/13 19:37:26 by cpollich          #+#    #+#             */
-/*   Updated: 2019/05/15 22:34:39 by cpollich         ###   ########.fr       */
+/*   Created: 2019/05/15 22:23:44 by cpollich          #+#    #+#             */
+/*   Updated: 2019/05/15 22:27:03 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_printf(const char *form, ...)
+int	ft_putstr(const char *str)
 {
-	va_list	vargs;
-	int		i;
-	int		ret;
-	int		j;
+	int len;
 
-	i = -1;
-	va_start(vargs, form);
-	while (form[++i])
-	{
-		if (form[i] == '%')
-			ret += do_tok(form, vargs, &i);
-		else
-		{
-			j += ft_putstr_until(form[i], '%');
-			ret += j;
-			i += j - 1;
-		}
-	}
-	va_end(vargs);
-	return (ret);
+	len = (int)ft_strlen(str);
+	write(1, str, len);
+	return (len);
 }

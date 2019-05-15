@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/13 19:37:26 by cpollich          #+#    #+#             */
-/*   Updated: 2019/05/15 22:34:39 by cpollich         ###   ########.fr       */
+/*   Created: 2019/05/15 22:32:08 by cpollich          #+#    #+#             */
+/*   Updated: 2019/05/15 22:34:55 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#	ifndef LIBFT_H
+#	define LIBFT_H
 
-int	ft_printf(const char *form, ...)
-{
-	va_list	vargs;
-	int		i;
-	int		ret;
-	int		j;
+#include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
 
-	i = -1;
-	va_start(vargs, form);
-	while (form[++i])
-	{
-		if (form[i] == '%')
-			ret += do_tok(form, vargs, &i);
-		else
-		{
-			j += ft_putstr_until(form[i], '%');
-			ret += j;
-			i += j - 1;
-		}
-	}
-	va_end(vargs);
-	return (ret);
-}
+int		ft_putchar(char c);
+int		ft_putstr(const char *str);
+size_t	ft_strlen(const char *str);
+
+#	endif
