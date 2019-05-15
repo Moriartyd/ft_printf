@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   print_char.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/13 19:37:26 by cpollich          #+#    #+#             */
-/*   Updated: 2019/05/15 21:56:57 by cpollich         ###   ########.fr       */
+/*   Created: 2019/05/15 22:04:53 by cpollich          #+#    #+#             */
+/*   Updated: 2019/05/15 22:19:00 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *form, ...)
+int	print_char(char c, t_token *token)
 {
-	va_list	vargs;
-	int		i;
-	int		ret;
-	int		j;
+	int w;
+	int i;
 
-	i = -1;
-	va_start(vargs, form);
-	while (form[++i])
+	w = token->width;
+	i = 1;
+	if (w < 2)
+		return (ft_putchar(c));
+	if (token->flags && F_MINUS == F_MINUS)
 	{
-		if (form[i] == '%')
-			ret += do_tok(form, vargs, &i);
-		else
-		{
-			j += ft_putstr_until(form[i], '%');
-			ret += j;
-			i += j - 1;
-		}
+		ft_putchar(c);
+		while (i < w)
+			i += ft_putchar((token->flags & F_ZERO) == F_ZERO ? '0' : ' ');
 	}
-	va_end(vargs);
-	return (ret);
+	else
+	{
+		while (i < w)
+			i += ft_putchar((token->flags & F_ZERO) == F_ZERO ? '0' : ' ');
+		ft_putchar(c);
+	}
+	return (i);
 }

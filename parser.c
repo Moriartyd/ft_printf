@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 21:10:18 by cpollich          #+#    #+#             */
-/*   Updated: 2019/05/15 20:07:11 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/05/15 22:04:31 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,27 +66,27 @@ int		length_flag(const char *f, int *i)
 	return (0);
 }
 
-int		parse_tok(const char *form, t_token token)
+int		parse_tok(const char *form, t_token *token)
 {
 	int	i;
 	int	flag;
 
 	i = 0;
 	while (form[i] && (flag = begin_flag(form[i++])))
-		token.flags = token.flags | flag;
+		token->flags = token->flags | flag;
 	while (form[i] && ft_isdigit(form[i]))
-		token.width = token.width * 10 + form[i++] - '0';
+		token->width = token->width * 10 + form[i++] - '0';
 	if (form[i] == '.')
 		while (form[++i] && ft_isdigit(form[i]))
-			if (token.prescision == -1)
-				token.prescision = form[i] - '0';
+			if (token->prescision == -1)
+				token->prescision = form[i] - '0';
 			else
-				token.prescision = token.prescision * 10 + form[i] - '0';
-	if (form[i - 1] == '.' && token.prescision == -1)
-		token.prescision = 0;
+				token->prescision = token->prescision * 10 + form[i] - '0';
+	if (form[i - 1] == '.' && token->prescision == -1)
+		token->prescision = 0;
 	if ((flag = length_flag(form, &i)))
-		token.flags = token.flags | flag;
-	token.spec = form[i];
+		token->flags = token->flags | flag;
+	token->spec = form[i];
 	return (i);
 }
 
@@ -97,5 +97,7 @@ int		do_tok(const char *form, va_list vargs, int *i)
 	token.width = 0;
 	token.prescision = -1;
 	token.flags = 0;
-	parse_tok(form, token);
+	*i += parse_tok(form, &token);
+	if (token.spec == S_CHAR)
+		return (print_char(va_arg(vargs, int), &token));
 }

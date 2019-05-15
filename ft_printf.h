@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 19:37:35 by cpollich          #+#    #+#             */
-/*   Updated: 2019/05/15 20:05:31 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/05/15 22:21:09 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,13 @@ typedef struct	s_token
 	char		prescision;
 	int			flags;
 }				t_token;
+
+int	ft_printf(const char *form, ...);
+int	print_char(char c, t_token *token);
+int	ft_putstr_until(const char *str, int c);
+int	begin_flag(int c);
+int	length_flag(const char *f, int *i);
+int	parse_tok(const char *form, t_token *token);
+int	do_tok(const char *form, va_list vargs, int *i);
 
 #endif
