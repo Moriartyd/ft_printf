@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   print_pointer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/15 22:22:28 by cpollich          #+#    #+#             */
-/*   Updated: 2019/05/16 18:32:47 by cpollich         ###   ########.fr       */
+/*   Created: 2019/05/16 20:46:11 by cpollich          #+#    #+#             */
+/*   Updated: 2019/05/23 21:04:54 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_putchar(char c)
+int print_pointer(void *p, t_token *token)
 {
-	write(1, &c, 1);
-	return (1);
+	int w;
+	unsigned long int	param;
 }

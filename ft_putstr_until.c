@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_until.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/15 22:22:28 by cpollich          #+#    #+#             */
-/*   Updated: 2019/05/16 18:32:47 by cpollich         ###   ########.fr       */
+/*   Created: 2019/05/16 18:32:02 by cpollich          #+#    #+#             */
+/*   Updated: 2019/05/16 18:32:29 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_putchar(char c)
+int		ft_putstr_until(const char *str, int c)
 {
-	write(1, &c, 1);
-	return (1);
+	int i;
+
+	if (!str)
+		return (0);
+	i = -1;
+	while (str[++i] && str[i] != c)
+		;
+	write(1, str, i);
+	return (i);
 }

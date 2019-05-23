@@ -6,24 +6,11 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 21:10:18 by cpollich          #+#    #+#             */
-/*   Updated: 2019/05/15 22:35:05 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/05/16 18:47:54 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int		ft_putstr_until(const char *str, int c)
-{
-	int i;
-
-	if (!str)
-		return (NULL);
-	i = -1;
-	while (str[++i] && str[i] != c)
-		;
-	write(1, str, i);
-	return (i);
-}
 
 int		begin_flag(int c)
 {
@@ -72,6 +59,7 @@ int		parse_tok(const char *form, t_token *token)
 	int	flag;
 
 	i = 0;
+	flag = 0;
 	while (form[i] && (flag = begin_flag(form[i++])))
 		token->flags = token->flags | flag;
 	while (form[i] && ft_isdigit(form[i]))
