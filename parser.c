@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int		begin_flag(int c)
+static int		begin_flag(int c)
 {
 	if (c == '-')
 		return (F_MINUS);
@@ -27,7 +27,7 @@ int		begin_flag(int c)
 	return (0);
 }
 
-int		length_flag(const char *f, int *i)
+static int		length_flag(const char *f, int *i)
 {
 	if ((f[*i] == 'h' && f[*i + 1] == 'h')
 		|| (f[*i] == 'l' && f[*i + 1] == 'l'))
@@ -53,7 +53,7 @@ int		length_flag(const char *f, int *i)
 	return (0);
 }
 
-int		parse_tok(const char *form, t_token *token)
+static int		parse_tok(const char *form, t_token *token)
 {
 	int	i;
 	int	flag;
@@ -66,12 +66,12 @@ int		parse_tok(const char *form, t_token *token)
 		token->width = token->width * 10 + form[i++] - '0';
 	if (form[i] == '.')
 		while (form[++i] && ft_isdigit(form[i]))
-			if (token->prescision == -1)
-				token->prescision = form[i] - '0';
+			if (token->precision == -1)
+				token->precision = form[i] - '0';
 			else
-				token->prescision = token->prescision * 10 + form[i] - '0';
-	if (form[i - 1] == '.' && token->prescision == -1)
-		token->prescision = 0;
+				token->precision = token->precision * 10 + form[i] - '0';
+	if (form[i - 1] == '.' && token->precision == -1)
+		token->precision = 0;
 	if ((flag = length_flag(form, &i)))
 		token->flags = token->flags | flag;
 	token->spec = form[i];
@@ -83,7 +83,7 @@ int		do_tok(const char *form, va_list vargs, int *i)
 	t_token token;
 
 	token.width = 0;
-	token.prescision = -1;
+	token.precision = -1;
 	token.flags = 0;
 	*i += parse_tok(form, &token);
 	if (token.spec == S_CHAR)

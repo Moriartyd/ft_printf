@@ -15,6 +15,8 @@
 
 # include <stdarg.h>
 # include <stdio.h>
+# include <inttypes.h>
+# include <string.h>
 # include "libft/libft.h"
 
 /*
@@ -60,16 +62,15 @@ typedef struct	s_token
 {
 	char		spec;
 	char		width;
-	char		prescision;
+	char		precision;
 	int			flags;
 }				t_token;
 
 int				ft_printf(const char *form, ...);
 int				print_char(char c, t_token *token);
-int				ft_putstr_until(const char *str, int c);
-int				begin_flag(int c);
-int				length_flag(const char *f, int *i);
-int				parse_tok(const char *form, t_token *token);
 int				do_tok(const char *form, va_list vargs, int *i);
+int				print_dec(long long int n, t_token *token);
+int				print_num(char *str, t_token *token, int sign);
+int				print_pointer(void *p, t_token *token);
 
 #endif

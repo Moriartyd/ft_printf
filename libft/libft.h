@@ -16,9 +16,12 @@
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
 
 int		ft_putchar(char c);
 int		ft_putstr(const char *str);
 size_t	ft_strlen(const char *str);
-
+char	*ft_itoa_base(int num, int base);
+void	ft_strdel(char **as);
+int		ft_putstr_until(const char *str, int c);
 #	endif
