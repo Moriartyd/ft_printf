@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 21:10:18 by cpollich          #+#    #+#             */
-/*   Updated: 2019/05/16 18:47:54 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/05/31 14:44:29 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static int		parse_tok(const char *form, t_token *token)
 	return (i);
 }
 
-int		do_tok(const char *form, va_list vargs, int *i)
+int				do_tok(const char *form, va_list vargs, int *i)
 {
 	t_token token;
 

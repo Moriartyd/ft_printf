@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_num.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/31 14:43:16 by cpollich          #+#    #+#             */
+/*   Updated: 2019/05/31 14:48:24 by cpollich         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int	print_pos(char *str, t_token *token)
@@ -13,11 +25,11 @@ static int	print_pos(char *str, t_token *token)
 		sign = ' ';
 	if ((token->flags & F_ZERO == F_ZERO) && (token->flags & F_MINUS))
 	{
-		
+
 	}
 	else
 	{
-		
+
 	}
 }
 

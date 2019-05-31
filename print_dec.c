@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_dec.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/31 14:43:58 by cpollich          #+#    #+#             */
+/*   Updated: 2019/05/31 14:44:02 by cpollich         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int print_dec(long long int n, t_token *token)
+int	print_dec(long long int n, t_token *token)
 {
-    char	*print;
-    int		ret;
+	char	*print;
+	int		ret;
 
 	if (token->flags & F_H == F_H)
 		print = ft_itoa_base((short)n, 10);
