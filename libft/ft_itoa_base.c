@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 14:45:45 by cpollich          #+#    #+#             */
-/*   Updated: 2019/05/31 14:47:08 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/05/31 21:33:33 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char		*ft_itoa_base(int num, int base)
 	else
 		n = (long)num;
 	if (!(str = malloc(sizeof(char) * (i + 1))))
-		return(NULL);
+		return (NULL);
 	str[i] = '\0';
 	while (n % base)
 	{
