@@ -6,7 +6,7 @@
 /*   By: jjory-ca <jjory-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 19:37:35 by cpollich          #+#    #+#             */
-/*   Updated: 2019/05/20 17:17:43 by jjory-ca         ###   ########.fr       */
+/*   Updated: 2019/05/31 16:52:24 by jjory-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,11 @@ typedef struct	s_token
 
 int				ft_printf(const char *form, ...);
 int				print_char(char c, t_token *token);
-<<<<<<< HEAD
 char    		print_s(char string, t_token *token);
 int				ft_putstr_until(const char *str, int c);
 int				begin_flag(int c);
 int				length_flag(const char *f, int *i);
 int				parse_tok(const char *form, t_token *token);
-=======
->>>>>>> b6fa371569eb3bef1dc0a5d72a7bb5c57e24f3a4
 int				do_tok(const char *form, va_list vargs, int *i);
 int				print_dec(long long int n, t_token *token);
 int				print_num(char *str, t_token *token, int sign);

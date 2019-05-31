@@ -6,7 +6,7 @@
 /*   By: jjory-ca <jjory-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 16:09:34 by jjory-ca          #+#    #+#             */
-/*   Updated: 2019/05/24 21:17:19 by jjory-ca         ###   ########.fr       */
+/*   Updated: 2019/05/31 16:53:22 by jjory-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ static void     add_precision(t_token *token, char **string)
 {
     char *new;
 
-    if (ft_strlen(*string) > token->prescision)
+    if (ft_strlen(*string) > token->precision && )
     {
-        new = ft_strnew(token->prescision);
-        ft_strncopy(new, *string, token->prescision);
+        new = ft_strnew(token->precision);
+        ft_strncopy(new, *string, token->precision);
         free(*string);
         new = *string;
     }
