@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jjory-ca <jjory-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 19:37:35 by cpollich          #+#    #+#             */
-/*   Updated: 2019/05/15 22:34:32 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/05/20 17:17:43 by jjory-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef struct	s_token
 
 int				ft_printf(const char *form, ...);
 int				print_char(char c, t_token *token);
+char    		print_s(char string, t_token *token);
 int				ft_putstr_until(const char *str, int c);
 int				begin_flag(int c);
 int				length_flag(const char *f, int *i);

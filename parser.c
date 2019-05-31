@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jjory-ca <jjory-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 21:10:18 by cpollich          #+#    #+#             */
-/*   Updated: 2019/05/15 22:35:05 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/05/20 17:17:18 by jjory-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,6 @@ int		do_tok(const char *form, va_list vargs, int *i)
 	*i += parse_tok(form, &token);
 	if (token.spec == S_CHAR)
 		return (print_char(va_arg(vargs, int), &token));
+	if (token.spec == S_STRING)
+		return (print_s(va_arg(vargs, char), &token));
 }
