@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/13 21:10:18 by cpollich          #+#    #+#             */
-/*   Updated: 2019/05/31 14:44:29 by cpollich         ###   ########.fr       */
+/*   Created: 2019/05/31 20:26:15 by cpollich          #+#    #+#             */
+/*   Updated: 2019/05/31 20:26:19 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,6 @@ int				do_tok(const char *form, va_list vargs, int *i)
 	*i += parse_tok(form, &token);
 	if (token.spec == S_CHAR)
 		return (print_char(va_arg(vargs, int), &token));
+	if (token.spec == S_STRING)
+		return (print_s(va_arg(vargs, char), &token));
 }
