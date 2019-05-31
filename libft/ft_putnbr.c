@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/15 22:32:08 by cpollich          #+#    #+#             */
-/*   Updated: 2019/05/15 22:34:55 by cpollich         ###   ########.fr       */
+/*   Created: 2019/05/23 21:11:25 by cpollich          #+#    #+#             */
+/*   Updated: 2019/05/23 22:52:49 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#	ifndef LIBFT_H
-#	define LIBFT_H
+#include "libft.h"
 
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
+int	ft_putnbr(int n)
+{
+	int	t;
 
-int		ft_putchar(char c);
-int		ft_putstr(const char *str);
-size_t	ft_strlen(const char *str);
-char	*ft_itoa_base(int num, int base);
-void	ft_strdel(char **as);
-int		ft_putstr_until(const char *str, int c);
-#	endif
+	if (n == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		return (11);
+	}
+	else if (n < 0)
+	{
+		write(1, "-", 1);
+		return (ft_putnbr(-n) + 1);
+	}
+	else if (n > 9)
+	{
+		t = ft_putnbr(n / 10);
+		ft_putchar(n % 10 + 48);
+		return (t + 1);
+	}
+	ft_putchar(n + 48);
+	return (1);
+}

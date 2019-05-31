@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_putstr_until.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/15 22:32:08 by cpollich          #+#    #+#             */
-/*   Updated: 2019/05/15 22:34:55 by cpollich         ###   ########.fr       */
+/*   Created: 2019/05/16 18:32:02 by cpollich          #+#    #+#             */
+/*   Updated: 2019/05/16 18:32:29 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#	ifndef LIBFT_H
-#	define LIBFT_H
+int		ft_putstr_until(const char *str, int c)
+{
+	int i;
 
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
-
-int		ft_putchar(char c);
-int		ft_putstr(const char *str);
-size_t	ft_strlen(const char *str);
-char	*ft_itoa_base(int num, int base);
-void	ft_strdel(char **as);
-int		ft_putstr_until(const char *str, int c);
-#	endif
+	if (!str)
+		return (0);
+	i = -1;
+	while (str[++i] && str[i] != c)
+		;
+	write(1, str, i);
+	return (i);
+}

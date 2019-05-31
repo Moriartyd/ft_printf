@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   print_pointer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/15 22:32:08 by cpollich          #+#    #+#             */
-/*   Updated: 2019/05/15 22:34:55 by cpollich         ###   ########.fr       */
+/*   Created: 2019/05/16 20:46:11 by cpollich          #+#    #+#             */
+/*   Updated: 2019/05/23 21:04:54 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#	ifndef LIBFT_H
-#	define LIBFT_H
+#include "ft_printf.h"
 
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
-
-int		ft_putchar(char c);
-int		ft_putstr(const char *str);
-size_t	ft_strlen(const char *str);
-char	*ft_itoa_base(int num, int base);
-void	ft_strdel(char **as);
-int		ft_putstr_until(const char *str, int c);
-#	endif
+int print_pointer(void *p, t_token *token)
+{
+	int w;
+	unsigned long int	param;
+}

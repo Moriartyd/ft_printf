@@ -6,26 +6,17 @@
 /*   By: jjory-ca <jjory-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 21:10:18 by cpollich          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2019/05/20 17:17:18 by jjory-ca         ###   ########.fr       */
+=======
+/*   Updated: 2019/05/16 18:47:54 by cpollich         ###   ########.fr       */
+>>>>>>> b6fa371569eb3bef1dc0a5d72a7bb5c57e24f3a4
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_putstr_until(const char *str, int c)
-{
-	int i;
-
-	if (!str)
-		return (NULL);
-	i = -1;
-	while (str[++i] && str[i] != c)
-		;
-	write(1, str, i);
-	return (i);
-}
-
-int		begin_flag(int c)
+static int		begin_flag(int c)
 {
 	if (c == '-')
 		return (F_MINUS);
@@ -40,7 +31,7 @@ int		begin_flag(int c)
 	return (0);
 }
 
-int		length_flag(const char *f, int *i)
+static int		length_flag(const char *f, int *i)
 {
 	if ((f[*i] == 'h' && f[*i + 1] == 'h')
 		|| (f[*i] == 'l' && f[*i + 1] == 'l'))
@@ -66,24 +57,25 @@ int		length_flag(const char *f, int *i)
 	return (0);
 }
 
-int		parse_tok(const char *form, t_token *token)
+static int		parse_tok(const char *form, t_token *token)
 {
 	int	i;
 	int	flag;
 
 	i = 0;
+	flag = 0;
 	while (form[i] && (flag = begin_flag(form[i++])))
 		token->flags = token->flags | flag;
 	while (form[i] && ft_isdigit(form[i]))
 		token->width = token->width * 10 + form[i++] - '0';
 	if (form[i] == '.')
 		while (form[++i] && ft_isdigit(form[i]))
-			if (token->prescision == -1)
-				token->prescision = form[i] - '0';
+			if (token->precision == -1)
+				token->precision = form[i] - '0';
 			else
-				token->prescision = token->prescision * 10 + form[i] - '0';
-	if (form[i - 1] == '.' && token->prescision == -1)
-		token->prescision = 0;
+				token->precision = token->precision * 10 + form[i] - '0';
+	if (form[i - 1] == '.' && token->precision == -1)
+		token->precision = 0;
 	if ((flag = length_flag(form, &i)))
 		token->flags = token->flags | flag;
 	token->spec = form[i];
@@ -95,7 +87,7 @@ int		do_tok(const char *form, va_list vargs, int *i)
 	t_token token;
 
 	token.width = 0;
-	token.prescision = -1;
+	token.precision = -1;
 	token.flags = 0;
 	*i += parse_tok(form, &token);
 	if (token.spec == S_CHAR)
