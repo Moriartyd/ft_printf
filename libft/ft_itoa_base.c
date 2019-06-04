@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 14:45:45 by cpollich          #+#    #+#             */
-/*   Updated: 2019/06/04 15:38:28 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/06/04 16:21:11 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char		*ft_itoa_base(int num, int base)
 
 	sign = (num < 0) ? -1 : 1;
 	i = ft_num_len_base(num, base);
-	n = (num < 0 ? -(long)num : (long)num);
+	n = (num < 0 ? -(long long)num : (long long)num);
 	if (num < 0)
 		n = -(long)num;
 	else

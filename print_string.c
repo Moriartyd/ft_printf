@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_string.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjory-ca <jjory-ca@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 16:09:34 by jjory-ca          #+#    #+#             */
-/*   Updated: 2019/05/31 16:53:22 by jjory-ca         ###   ########.fr       */
+/*   Updated: 2019/06/04 16:34:37 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ static void     add_precision(t_token *token, char **string)
         new = *string;
     }
 }
-char    print_s(char ap, t_token *token)
+char    print_string(char ap, t_token *token)
 {    
     if (ap == NULL)
-        return (ft_strdup("(null)"));
+        return (ft_strdup_safe("(null)"));
     else
-        ap = ft_strdup(ap);
+        ap = ft_strdup_safe(ap);
         add_precision(token, &ap);
     return (ap);
 }

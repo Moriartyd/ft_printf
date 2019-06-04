@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 19:37:35 by cpollich          #+#    #+#             */
-/*   Updated: 2019/05/31 21:30:02 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/06/04 16:31:17 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,17 +67,18 @@ typedef struct	s_token
 }				t_token;
 
 int				ft_printf(const char *form, ...);
-int				print_char(char c, t_token *token);
-char			print_s(char string, t_token *token);
-int				ft_putstr_until(const char *str, int c);
-int				begin_flag(int c);
-int				length_flag(const char *f, int *i);
-int				parse_tok(const char *form, t_token *token);
 int				do_tok(const char *form, va_list vargs, int *i);
-int				print_dec(long long int n, t_token *token);
-int				print_num(char *str, t_token *token, int sign);
-int				print_pointer(void *p, t_token *token);
 int				print_without_flag(char *str, int w, int p, char c);
 int				print_with_flag(char *str, int w, int p, char c);
+int				print_num(char *str, t_token *token, int sign);
+
+/*
+**	PRINT
+*/
+
+int				print_dec(long long int n, t_token *token);
+int				print_pointer(void *p, t_token *token);
+int				print_char(char c, t_token *token);
+char			print_string(char string, t_token *token);
 
 #endif
