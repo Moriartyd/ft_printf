@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strcpy.c                                           :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjory-ca <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 16:52:44 by jjory-ca          #+#    #+#             */
-/*   Updated: 2018/12/20 20:15:43 by jjory-ca         ###   ########.fr       */
+/*   Updated: 2019/06/04 15:50:36 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *s1, const char *s2)
+char	*ft_strcpy(char *dst, const char *src)
 {
-	int	i;
+	char *d;
 
-	i = 0;
-	while (s2[i] != '\0')
+	d = dst;
+	while (*src)
 	{
-		s1[i] = s2[i];
-		i++;
-		s1[i] = '\0';
+		*dst = *src;
+		dst++;
+		src++;
 	}
-	s1[i] = '\0';
-	return (s1);
+	*dst = '\0';
+	return (d);
 }
