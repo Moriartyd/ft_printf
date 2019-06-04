@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_until.c                                  :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/16 18:32:02 by cpollich          #+#    #+#             */
-/*   Updated: 2019/06/04 18:31:02 by cpollich         ###   ########.fr       */
+/*   Created: 2019/06/04 19:01:19 by cpollich          #+#    #+#             */
+/*   Updated: 2019/06/04 19:09:35 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_putstr_until(const char *str, int c)
+int	ft_isdigit(int c)
 {
-	int i;
-
-	if (!str)
+	if (c >= 48 && c <= 57)
+		return (1);
+	else
 		return (0);
-	i = -1;
-	while (str[++i] && str[i] != c)
-		;
-	write(1, str, i);
-	return (i);
 }

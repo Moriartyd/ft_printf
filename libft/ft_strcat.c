@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_until.c                                  :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/16 18:32:02 by cpollich          #+#    #+#             */
-/*   Updated: 2019/06/04 18:31:02 by cpollich         ###   ########.fr       */
+/*   Created: 2019/06/04 20:07:38 by cpollich          #+#    #+#             */
+/*   Updated: 2019/06/04 20:07:48 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int		ft_putstr_until(const char *str, int c)
+char	*ft_strcat(char *s1, const char *s2)
 {
-	int i;
+	char *ret;
 
-	if (!str)
-		return (0);
-	i = -1;
-	while (str[++i] && str[i] != c)
-		;
-	write(1, str, i);
-	return (i);
+	ret = s1;
+	while (*s1)
+		s1++;
+	while (*s2)
+	{
+		*s1 = (char)*s2;
+		s1++;
+		s2++;
+	}
+	*s1 = '\0';
+	return (ret);
 }

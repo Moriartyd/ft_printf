@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 20:26:15 by cpollich          #+#    #+#             */
-/*   Updated: 2019/05/31 20:28:17 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/06/04 19:39:18 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int		length_flag(const char *f, int *i)
 	else if (f[*i] == 'h' || f[*i] == 'l' || f[*i] == 'j' || f[*i] == 'z' ||
 		f[*i] == 'L')
 	{
-		*i++;
+		*i += 1;
 		if (f[*i - 1] == 'h')
 			return (F_H);
 		if (f[*i - 1] == 'l')
@@ -66,10 +66,12 @@ static int		parse_tok(const char *form, t_token *token)
 		token->width = token->width * 10 + form[i++] - '0';
 	if (form[i] == '.')
 		while (form[++i] && ft_isdigit(form[i]))
+		{
 			if (token->precision == -1)
 				token->precision = form[i] - '0';
 			else
 				token->precision = token->precision * 10 + form[i] - '0';
+		}
 	if (form[i - 1] == '.' && token->precision == -1)
 		token->precision = 0;
 	if ((flag = length_flag(form, &i)))
@@ -88,6 +90,11 @@ int				do_tok(const char *form, va_list vargs, int *i)
 	*i += parse_tok(form, &token);
 	if (token.spec == S_CHAR)
 		return (print_char(va_arg(vargs, int), &token));
-	if (token.spec == S_STRING)
-		return (print_s(va_arg(vargs, char), &token));
+	else if (token.spec == S_STRING)
+		return (print_string(va_arg(vargs, char *), &token));
+	else if (token.spec == S_DECIMAL || token.spec == S_INTEGER)
+		return (print_dec(va_arg(vargs, long long int), &token));
+	else if (token.spec == S_POINTER)
+		return (print_pointer(va_arg(vargs, unsigned long long int), &token));
+	return (0);
 }

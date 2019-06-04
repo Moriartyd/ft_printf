@@ -6,7 +6,7 @@
 #    By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/16 18:22:40 by cpollich          #+#    #+#              #
-#    Updated: 2019/06/04 17:26:50 by cpollich         ###   ########.fr        #
+#    Updated: 2019/06/04 20:40:44 by cpollich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,26 +22,26 @@ SRCC	=	ft_printf.c\
 			parser.c\
 			print_char.c\
 			print_dec.c\
-			print_pointer\
+			print_pointer.c\
 			print_string.c\
-			print_flags.c\
+			helper.c\
 			print_num.c
 
-OBJS = ($addprefix $(OBJ)/,$(SRC:%.c=%.o))
+OBJS = $(addprefix $(OBJ)/,$(SRCC:%.c=%.o))
 LIBFT_LIB = $(LIBFT)/libft.a
 LIBFT_H = $(LIBFT)
 
 all: $(NAME)
+
+$(NAME): $(OBJ) $(LIBFT_LIB) $(OBJS)
+	ar rcs $(NAME) $(OBJS) $(LIBFT)/*.o
+	ranlib $(NAME)
 
 $(OBJ):
 	mkdir -p $(OBJ)
 
 $(LIBFT_LIB):
 	make -C libft
-
-$(NAME): $(OBJ) $(LIBFT_LIB) $(OBJS)
-	ar rcs $(NAME) $(OBJS) $(LIBFT)/*.o
-	ranlib $(NAME)
 
 $(OBJ)/%.o: $(SRC)/%.c
 	gcc -g $F -c $< -I$(INC) -I$(LIBFT_H) -o $@

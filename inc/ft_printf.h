@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 19:37:35 by cpollich          #+#    #+#             */
-/*   Updated: 2019/06/04 16:31:17 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/06/04 20:27:13 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdio.h>
 # include <inttypes.h>
 # include <string.h>
-# include "libft/libft.h"
+# include "libft.h"
 
 /*
 ** Defining speces
@@ -68,8 +68,6 @@ typedef struct	s_token
 
 int				ft_printf(const char *form, ...);
 int				do_tok(const char *form, va_list vargs, int *i);
-int				print_without_flag(char *str, int w, int p, char c);
-int				print_with_flag(char *str, int w, int p, char c);
 int				print_num(char *str, t_token *token, int sign);
 
 /*
@@ -77,8 +75,16 @@ int				print_num(char *str, t_token *token, int sign);
 */
 
 int				print_dec(long long int n, t_token *token);
-int				print_pointer(void *p, t_token *token);
+int				print_pointer(unsigned long long int p, t_token *token);
 int				print_char(char c, t_token *token);
-char			print_string(char string, t_token *token);
+int				print_string(char *ap, t_token *token);
+
+/*
+**	Helper funcs
+*/
+
+char			*gen_str(int size, int c);
+int				print_without_flag(char *str, int w, int p, char c);
+int				print_with_flag(char *str, int w, int p, char c);
 
 #endif

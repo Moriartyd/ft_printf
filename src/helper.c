@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_flags.c                                      :+:      :+:    :+:   */
+/*   helper.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 20:32:55 by cpollich          #+#    #+#             */
-/*   Updated: 2019/05/31 21:33:12 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/06/04 20:50:58 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_with_flag(char *str, int w, int p, char c)
+int		print_with_flag(char *str, int w, int p, char c)
 {
 	int	i;
 
@@ -33,7 +33,7 @@ int	print_with_flag(char *str, int w, int p, char c)
 	return (i);
 }
 
-int	print_without_flag(char *str, int w, int p, char c)
+int		print_without_flag(char *str, int w, int p, char c)
 {
 	int	len;
 	int	l;
@@ -51,4 +51,18 @@ int	print_without_flag(char *str, int w, int p, char c)
 	while (str[j] && j < l)
 		i = i + ft_putchar(str[j++]);
 	return (i);
+}
+
+char	*gen_str(int size, int c)
+{
+	char	*str;
+	int		i;
+
+	i = 0;
+	str = (char *)malloc(sizeof(char) * (size + 1));
+	if (!str)
+		return (NULL);
+	str = (char*)ft_memset((void *)str, c, size);
+	str[size] = '\0';
+	return (str);
 }
