@@ -78,7 +78,7 @@ int				print_dec(long long int n, t_token *token);
 int				print_pointer(unsigned long long int p, t_token *token);
 int				print_char(char c, t_token *token);
 int				print_string(char *ap, t_token *token);
-
+int				print_octal(size_t n, t_token *token);
 /*
 **	Helper funcs
 */

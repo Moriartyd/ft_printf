@@ -96,5 +96,7 @@ int				do_tok(const char *form, va_list vargs, int *i)
 		return (print_dec(va_arg(vargs, long long int), &token));
 	else if (token.spec == S_POINTER)
 		return (print_pointer(va_arg(vargs, unsigned long long int), &token));
+	else if (token.spec == S_OCTAL)
+		return (print_octal(va_arg(vargs, unsigned long int), &token));
 	return (0);
 }
