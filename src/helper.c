@@ -56,13 +56,29 @@ int		print_without_flag(char *str, int w, int p, char c)
 char	*gen_str(int size, int c)
 {
 	char	*str;
-	int		i;
 
-	i = 0;
 	str = (char *)malloc(sizeof(char) * (size + 1));
 	if (!str)
 		return (NULL);
 	str = (char*)ft_memset((void *)str, c, size);
 	str[size] = '\0';
 	return (str);
+}
+
+char	*ft_nchjoinstr(char *str, char c, int n)
+{
+	char	*res;
+	int		i;
+	int		j;
+
+	if (n < 0)
+		return (ft_strdup_safe(str));
+	res = ft_strnew(ft_strlen(str) + n);
+	j = -1;
+	while (n--)
+		res[++j] = c;
+	i = -1;
+	while (str[++i])
+		res[++j] = str[i];
+	return (res);
 }

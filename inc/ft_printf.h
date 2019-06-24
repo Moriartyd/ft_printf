@@ -86,5 +86,6 @@ int				print_string(char *ap, t_token *token);
 char			*gen_str(int size, int c);
 int				print_without_flag(char *str, int w, int p, char c);
 int				print_with_flag(char *str, int w, int p, char c);
+char			*ft_nchjoinstr(char *str, char c, int n);
 
 #endif

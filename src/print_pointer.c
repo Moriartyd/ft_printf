@@ -30,9 +30,9 @@ int	print_pointer(unsigned long long int p, t_token *token)
 		token->flags = token->flags & (~(F_PLUS | F_SPACE));
 		token->precision = -1;
 		tmp1 = ft_nchjoinstr("", '0', l);
-		tmp2 = ft_strjoin("0x", tmp1);
+		tmp2 = ft_strjoin_leak("0x", tmp1);
 		free(tmp1);
-		l = print_number(tmp2, token, 1);
+		l = print_num(tmp2, token, 1);
 		free(tmp2);
 		return (l);
 	}

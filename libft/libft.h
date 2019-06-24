@@ -39,6 +39,7 @@ char	*ft_strnew(size_t size);
 char	*ft_strncpy(char *dst, const char *src, size_t len);
 char	*ft_strcpy(char *dst, const char *src);
 char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin_leak(char const *s1, char const *s2);
 char	*ft_strcat(char *s1, const char *s2);
 
 /*

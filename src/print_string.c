@@ -12,29 +12,21 @@
 
 #include "ft_printf.h"
 
-// static void     add_precision(t_token *token, char **string)
-// {
-//     char *new;
-
-//     if (ft_strlen(*string) > token->precision && )
-//     {
-//         new = ft_strnew(token->precision);
-//         ft_strncopy(new, *string, token->precision);
-//         free(*string);
-//         new = *string;
-//     }
-// }
-
 int	print_string(char *ap, t_token *token)
 {
-	token->flags = 0;
-	if (ap == NULL)
+	int	w;
+	int	p;
+
+	w = token->width;
+	p = token->precision;
+	if (!ap)
 	{
-		ft_strdup_safe("(null)");
-		return (0);
+		return (((token->flags & F_MINUS) != F_MINUS) ?
+				print_without_flag("(null)", w, p, ' ') :
+				print_with_flag("(null)", w, p, ' '));
 	}
+	if ((token->flags & F_MINUS) != F_MINUS)
+		return (print_with_flag(ap, w, p, ' '));
 	else
-		ap = ft_strdup_safe(ap);
-		//add_precision(token, &ap);
-	return (0);
+		return (print_without_flag(ap, w, p, ' '));	
 }

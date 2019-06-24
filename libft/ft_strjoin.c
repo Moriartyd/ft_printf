@@ -23,6 +23,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	str = ft_strcpy(str, s1);
 	str = ft_strcat(str, s2);
-	ft_strdel(&s1);
+	ft_strdel((char**)&s1);
 	return (str);
 }
