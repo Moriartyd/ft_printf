@@ -98,6 +98,12 @@ static int	print_neg_prec(char *str, t_token *token)
 	return (res);
 }
 
+/*
+**		SIGN:
+**			1 - positive
+**			0 - negative
+*/
+
 int			print_num(char *str, t_token *token, int sign)
 {
 	if (sign && token->precision == -1)

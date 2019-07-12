@@ -12,7 +12,7 @@ static int	ft_num_len_base(int num, int base)
 
 char		*ft_itoa_ubase(size_t num, int base)
 {
-	long	n;
+	size_t	n;
 	int		i;
 	char	*str;
 

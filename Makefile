@@ -22,6 +22,8 @@ SRCC	=	ft_printf.c\
 			parser.c\
 			print_char.c\
 			print_dec.c\
+			print_octal.c\
+			print_hex.c\
 			print_pointer.c\
 			print_string.c\
 			helper.c\
