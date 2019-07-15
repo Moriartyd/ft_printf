@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa_ubase.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/07/13 16:12:58 by cpollich          #+#    #+#             */
+/*   Updated: 2019/07/13 22:43:15 by cpollich         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static int	ft_num_len_base(int num, int base)
+static int	ft_num_len_base(size_t num, int base)
 {
 	int i;
 

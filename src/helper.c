@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   helper.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 20:32:55 by cpollich          #+#    #+#             */
-/*   Updated: 2019/06/04 20:50:58 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/07/13 23:18:46 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,21 @@ char	*ft_nchjoinstr(char *str, char c, int n)
 	while (str[++i])
 		res[++j] = str[i];
 	return (res);
+}
+
+size_t	cast_to_flag(size_t n, t_token *tok)
+{
+	if ((tok->flags & F_HH) == F_HH)
+		return ((unsigned char)n);
+	else if ((tok->flags & F_H) == F_H)
+		return ((unsigned short)n);
+	else if ((tok->flags & F_L) == F_L)
+		return ((unsigned long)n);
+	else if ((tok->flags & F_LL) == F_LL)
+		return ((unsigned long long)n);
+	else if ((tok->flags & F_J) == F_J)
+		return ((intmax_t)n);
+	else if ((tok->flags & F_Z) == F_Z)
+		return ((size_t)n);
+	return ((unsigned int)n);
 }

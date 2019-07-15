@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 20:26:15 by cpollich          #+#    #+#             */
-/*   Updated: 2019/06/04 19:39:18 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/07/15 16:32:31 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,16 @@ static int		parse_tok(const char *form, t_token *token)
 	int	flag;
 
 	i = 0;
-	flag = 0;
-	while (form[i] && (flag = begin_flag(form[i++])))
+	while (form[i] && (flag = begin_flag(form[i])))
+	{
 		token->flags = token->flags | flag;
+		i++;
+	}
 	while (form[i] && ft_isdigit(form[i]))
-		token->width = token->width * 10 + form[i++] - '0';
+	{
+		token->width = token->width * 10 + form[i] - '0';
+		i++;
+	}
 	if (form[i] == '.')
 		while (form[++i] && ft_isdigit(form[i]))
 		{
@@ -92,11 +97,15 @@ int				do_tok(const char *form, va_list vargs, int *i)
 		return (print_char(va_arg(vargs, int), &token));
 	else if (token.spec == S_STRING)
 		return (print_string(va_arg(vargs, char *), &token));
+	// else if (token.spec == S_PERCENT)
+	// 	return (print_char('%', &token));
 	else if (token.spec == S_DECIMAL || token.spec == S_INTEGER)
 		return (print_dec(va_arg(vargs, long long int), &token));
 	else if (token.spec == S_POINTER)
 		return (print_pointer(va_arg(vargs, unsigned long long int), &token));
 	else if (token.spec == S_OCTAL)
 		return (print_octal(va_arg(vargs, unsigned long int), &token));
+	else if (token.spec == S_HEX || token.spec == S_BHEX)
+		return (print_hex(va_arg(vargs, unsigned long int), &token));
 	return (0);
 }

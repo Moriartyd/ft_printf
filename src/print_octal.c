@@ -1,30 +1,54 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_octal.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/07/13 16:11:30 by cpollich          #+#    #+#             */
+/*   Updated: 2019/07/13 23:19:18 by cpollich         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-static size_t	cast_to_flag(size_t n, t_token *tok)
+static int		ft_num_len_base(size_t num, int base)
 {
-	if ((tok->flags & F_HH) == F_HH)
-		return ((unsigned char)n);
-	else if ((tok->flags & F_H) == F_H)
-		return ((unsigned short)n);
-	else if ((tok->flags & F_L) == F_L)
-		return ((unsigned long)n);
-	else if ((tok->flags & F_LL) == F_LL)
-		return ((unsigned long long)n);
-	else if ((tok->flags & F_J) == F_J)
-		return ((intmax_t)n);
-	else if ((tok->flags & F_Z) == F_Z)
-		return ((size_t)n);
-	return ((unsigned int)n);
+	int i;
+
+	i = 1;
+	while ((num = num / base) != 0)
+		i++;
+	return (i);
 }
 
-int	print_octal(size_t n, t_token *token)
+static char *ft_itoa_uoct(size_t num)
+{
+    char	*alpha;
+    char	*res;
+	int		len;
+
+	alpha = "01234567";
+	if (num == 0)
+		return (ft_strdup_safe("0"));
+	len = ft_num_len_base(num, 8);
+	res = ft_strnew(len);
+	while (num)
+	{
+		res[len--] = alpha[num % 8];
+		num /= 8;
+	}
+	return (res);
+}
+
+int				print_octal(size_t n, t_token *token)
 {
 	int		res;
 	char	*str;
 
 	token->flags = token->flags & (~F_PLUS);
 	token->flags = token->flags & (~F_SPACE);
-	if (!(str = ft_itoa_ubase(cast_to_flag(n, token), 8)))
+	if (!(str = ft_itoa_uoct(cast_to_flag(n, token))))
 		return (0);
 	if ((token->flags & F_SHARP) == F_SHARP)
 	{

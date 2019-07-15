@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 19:37:35 by cpollich          #+#    #+#             */
-/*   Updated: 2019/06/04 20:27:13 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/07/13 23:19:06 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,6 @@ char			*gen_str(int size, int c);
 int				print_without_flag(char *str, int w, int p, char c);
 int				print_with_flag(char *str, int w, int p, char c);
 char			*ft_nchjoinstr(char *str, char c, int n);
+size_t			cast_to_flag(size_t n, t_token *tok);
 
 #endif
