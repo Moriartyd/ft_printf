@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_pointer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/16 20:46:11 by cpollich          #+#    #+#             */
-/*   Updated: 2019/06/04 20:54:12 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/07/21 02:38:54 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,16 @@ int	print_pointer(unsigned long long int p, t_token *token)
 		l = token->precision;
 	if (p == 0)
 	{
-		token->flags = token->flags & (~(F_PLUS | F_SPACE));
+		token->flags = token->flags & (~F_PLUS);
+		token->flags = token->flags & (~F_SPACE);
 		token->precision = -1;
 		tmp1 = ft_nchjoinstr("", '0', l);
 		tmp2 = ft_strjoin_leak("0x", tmp1);
-		free(tmp1);
+		ft_strdel(&tmp1);
 		l = print_num(tmp2, token, 1);
-		free(tmp2);
+		ft_strdel(&tmp2);
 		return (l);
 	}
 	token->flags = token->flags | F_LL;
-	return (0);
+	return (print_hex(p, token));
 }

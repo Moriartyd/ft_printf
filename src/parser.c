@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 20:26:15 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/20 21:55:06 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/07/21 02:27:22 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,14 +89,12 @@ int				do_tok(const char *form, va_list vargs, int *i)
 	token.precision = -1;
 	token.flags = 0;
 	*i += parse_tok(form, &token) + 1;
-	ft_putchar(token.spec);
-	ft_putchar('\n');
 	if (token.spec == S_CHAR)
 		return (print_char(va_arg(vargs, int), &token));
 	else if (token.spec == S_STRING)
 		return (print_string(va_arg(vargs, char *), &token));
-	// else if (token.spec == S_PERCENT)
-	// 	return (print_char('%', &token));
+	else if (token.spec == S_PERCENT)
+	 	return (print_char('%', &token));
 	else if (token.spec == S_DECIMAL || token.spec == S_INTEGER)
 		return (print_dec(va_arg(vargs, long long int), &token));
 	else if (token.spec == S_POINTER)

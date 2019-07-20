@@ -2,6 +2,7 @@
 
 int	main()
 {
-	ft_printf("%o", 21);
+	ft_printf("---->%9.2p<-----\n", 1234);
+	printf("----->%9.2p<-----\n", 1234);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup_safe.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/26 16:58:50 by jjory-ca          #+#    #+#             */
-/*   Updated: 2019/06/04 16:25:07 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/07/21 02:22:58 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ char	*ft_strdup_safe(const char *s1)
 	char	*s;
 	size_t	i;
 
-	if (!s1)
-		return (NULL);
 	i = -1;
 	s = (char*)malloc(sizeof(char) * (ft_strlen(s1) + 1));
 	if (s == NULL)
