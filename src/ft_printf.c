@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 19:37:26 by cpollich          #+#    #+#             */
-/*   Updated: 2019/06/04 18:50:02 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/07/20 21:45:46 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ int	ft_printf(const char *form, ...)
 	while (form[++i])
 	{
 		if (form[i] == '%')
-			ret += do_tok(form, vargs, &i);
+			ret += do_tok(form + i + 1, vargs, &i);
 		else
 		{
-			j += ft_putstr_until(&form[i], '%');
+			j += ft_putstr_until((char *)form + i, '%');
 			ret += j;
 			i += j - 1;
 		}

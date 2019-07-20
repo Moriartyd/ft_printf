@@ -6,7 +6,7 @@
 #    By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/16 18:22:40 by cpollich          #+#    #+#              #
-#    Updated: 2019/06/04 20:40:44 by cpollich         ###   ########.fr        #
+#    Updated: 2019/07/20 21:52:24 by cpollich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,3 +60,6 @@ re: fclean all
 
 norm:
 	norminette
+
+test:
+	@@gcc main.c src/*.c libft/*.c -o libftprintf.a -I./inc -I./libft

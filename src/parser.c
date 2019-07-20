@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 20:26:15 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/15 16:32:31 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/07/20 21:55:06 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int		begin_flag(int c)
 static int		length_flag(const char *f, int *i)
 {
 	if ((f[*i] == 'h' && f[*i + 1] == 'h')
-		|| (f[*i] == 'l' && f[*i + 1] == 'l'))
+				|| (f[*i] == 'l' && f[*i + 1] == 'l'))
 	{
 		*i += 2;
 		return (f[*i] == 'h' ? F_HH : F_LL);
@@ -71,12 +71,8 @@ static int		parse_tok(const char *form, t_token *token)
 	}
 	if (form[i] == '.')
 		while (form[++i] && ft_isdigit(form[i]))
-		{
-			if (token->precision == -1)
-				token->precision = form[i] - '0';
-			else
-				token->precision = token->precision * 10 + form[i] - '0';
-		}
+			token->precision == -1 ? (token->precision = form[i] - '0') :
+				(token->precision = token->precision * 10 + form[i] - '0');
 	if (form[i - 1] == '.' && token->precision == -1)
 		token->precision = 0;
 	if ((flag = length_flag(form, &i)))
@@ -92,7 +88,9 @@ int				do_tok(const char *form, va_list vargs, int *i)
 	token.width = 0;
 	token.precision = -1;
 	token.flags = 0;
-	*i += parse_tok(form, &token);
+	*i += parse_tok(form, &token) + 1;
+	ft_putchar(token.spec);
+	ft_putchar('\n');
 	if (token.spec == S_CHAR)
 		return (print_char(va_arg(vargs, int), &token));
 	else if (token.spec == S_STRING)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   helper.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 20:32:55 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/13 23:18:46 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/07/20 22:02:12 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,14 @@ int		print_with_flag(char *str, int w, int p, char c)
 
 int		print_without_flag(char *str, int w, int p, char c)
 {
+	ft_putstr("\nWITHOUT FLAG\n");
 	int	len;
 	int	l;
 	int	i;
 	int j;
 
 	len = ft_strlen(str);
-	l = (p == -1) ? len : p;
+	p == -1 ? l = len : l = p;
 	if (p != -1)
 		l = (len > p) ? p : len;
 	i = 0;

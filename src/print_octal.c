@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_octal.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 16:11:30 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/13 23:19:18 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/07/20 21:56:20 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ static int		ft_num_len_base(size_t num, int base)
 	return (i);
 }
 
-static char *ft_itoa_uoct(size_t num)
+static char		*ft_itoa_uoct(size_t num)
 {
-    char	*alpha;
-    char	*res;
+	char	*alpha;
+	char	*res;
 	int		len;
 
 	alpha = "01234567";
@@ -46,13 +46,14 @@ int				print_octal(size_t n, t_token *token)
 	int		res;
 	char	*str;
 
+	printf("%i", n);
 	token->flags = token->flags & (~F_PLUS);
 	token->flags = token->flags & (~F_SPACE);
 	if (!(str = ft_itoa_uoct(cast_to_flag(n, token))))
 		return (0);
 	if ((token->flags & F_SHARP) == F_SHARP)
 	{
-		token->precision =((n == 0 && token->precision == 0) ? -1 : 0);
+		token->precision = ((n == 0 && token->precision == 0) ? -1 : 0);
 		if (!n)
 			res = print_num(str, token, 1);
 		else

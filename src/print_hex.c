@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_hex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 16:12:16 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/15 16:13:14 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/07/20 20:58:15 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,32 +22,13 @@ static int		ft_num_len_base(size_t num, int base)
 	return (i);
 }
 
-// static char *ft_itoa_ubhex(size_t num)
-// {
-//     char	*alpha;
-//     char	*res;
-// 	int		len;
-
-// 	alpha = "0123456789ABCDEF";
-// 	if (num == 0)
-// 		return (ft_strdup_safe("0"));
-// 	len = ft_num_len_base(num, 16);
-// 	res = ft_strnew(len);
-// 	while (num)
-// 	{
-// 		res[len--] = alpha[num % 16];
-// 		num /= 16;
-// 	}
-// 	return (res);
-// }
-
-static char *ft_itoa_uhex(size_t num, char spec)
+static char		*ft_itoa_uhex(size_t num, char spec)
 {
-    char	*alpha;
-    char	*res;
+	char	*alpha;
+	char	*res;
 	int		len;
- 
-	alpha = (spec == S_HEX)? "0123456789abcdef" : "0123456789ABCDEF";
+
+	alpha = (spec == S_HEX) ? "0123456789abcdef" : "0123456789ABCDEF";
 	if (num == 0)
 		return (ft_strdup_safe("0"));
 	len = ft_num_len_base(num, 16);
@@ -66,7 +47,7 @@ static void		parsing(size_t num, t_token *token, char **str, int len)
 
 	if (token->precision > len)
 	{
-		tmp = ft_nchjoinstr(*str,'0', token->precision - len);
+		tmp = ft_nchjoinstr(*str, '0', token->precision - len);
 		free(str);
 		*str = tmp;
 		token->flags = token->flags & (~F_ZERO);
@@ -74,7 +55,7 @@ static void		parsing(size_t num, t_token *token, char **str, int len)
 	if ((token->flags & F_ZERO) == F_ZERO && token->precision == -1
 		&& !num && (token->flags & F_MINUS) == F_MINUS)
 	{
-		tmp = ft_nchjoinstr(*str, '0', token->width - len-
+		tmp = ft_nchjoinstr(*str, '0', token->width - len -
 			((token->flags & F_SHARP) == F_SHARP) * 2);
 		free(*str);
 		*str = tmp;
@@ -88,7 +69,7 @@ static void		parsing(size_t num, t_token *token, char **str, int len)
 	}
 }
 
-int 		print_hex(size_t n, t_token *token)
+int				print_hex(size_t n, t_token *token)
 {
 	char	*str;
 	int		res;
@@ -96,10 +77,8 @@ int 		print_hex(size_t n, t_token *token)
 	token->flags = token->flags & (~F_PLUS & ~F_SPACE);
 	if (!n && token->precision == 0)
 		print_num("", token, 1);
-	// if ((token->spec == S_HEX && !(str = ft_itoa_uhex(n))) ||
-	// 	(token->spec == S_BHEX && !(str = ft_itoa_ubhex(n))))
 	if (!(str = ft_itoa_uhex(n, token->spec)))
-    	return (0);
+		return (0);
 	parsing(n, token, &str, ft_strlen(str));
 	token->precision = -1;
 	res = print_num(str, token, 1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa_ubase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/13 16:12:58 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/13 22:43:15 by cpollich         ###   ########.fr       */
+/*   Created: 2019/07/20 20:47:25 by cpollich          #+#    #+#             */
+/*   Updated: 2019/07/20 20:47:26 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
