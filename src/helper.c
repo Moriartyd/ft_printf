@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 20:32:55 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/21 02:10:17 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/07/21 16:44:55 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,22 +47,32 @@ int		print_without_flag(char *str, int w, int p, char c)
 	i = 0;
 	while (w - i > l)
 		i += ft_putchar(c);
-	j = 0;
-	while (str[j] && j < l)
-		i = i + ft_putchar(str[j++]);
+	j = -1;
+	while (str[++j] && j < l)
+		i = i + ft_putchar(str[j]);
 	return (i);
 }
 
-char	*gen_str(int size, int c)
+char	*ft_chjoinstr(char c, char *str)
 {
-	char	*str;
+	char	*res;
+	int		i;
 
-	str = (char *)malloc(sizeof(char) * (size + 1));
 	if (!str)
 		return (NULL);
-	str = (char*)ft_memset((void *)str, c, size);
-	str[size] = '\0';
-	return (str);
+	if (c == '\0')
+		return (ft_strdup(str));
+	res = ft_strnew(ft_strlen(str) + 1);
+	if (!res)
+		return (NULL);
+	i = 0;
+	res[0] = c;
+	while (str[i])
+	{
+		res[i + 1] = str[i];
+		i++;
+	}
+	return (res);
 }
 
 char	*ft_nchjoinstr(char *str, char c, int n)
@@ -72,7 +82,7 @@ char	*ft_nchjoinstr(char *str, char c, int n)
 	int		j;
 
 	if (n < 0)
-		return (ft_strdup_safe(str));
+		return (ft_strdup(str));
 	res = ft_strnew(ft_strlen(str) + n);
 	j = -1;
 	while (n--)

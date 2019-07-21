@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 20:26:15 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/21 02:27:22 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/07/21 15:57:37 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int		length_flag(const char *f, int *i)
 				|| (f[*i] == 'l' && f[*i + 1] == 'l'))
 	{
 		*i += 2;
-		return (f[*i] == 'h' ? F_HH : F_LL);
+		return (f[*i - 1] == 'h' ? F_HH : F_LL);
 	}
 	else if (f[*i] == 'h' || f[*i] == 'l' || f[*i] == 'j' || f[*i] == 'z' ||
 		f[*i] == 'L')

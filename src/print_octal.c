@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 16:11:30 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/21 02:26:23 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/07/21 16:15:16 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static char		*ft_itoa_uoct(size_t num)
 	int		len;
 
 	if (num == 0)
-		return (ft_strdup_safe("0"));
+		return (ft_strdup("0"));
 	alpha = "01234567";
 	len = ft_num_len_base(num, 8);
 	res = ft_strnew(len--);

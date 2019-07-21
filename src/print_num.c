@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_num.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 14:43:16 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/20 21:59:21 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/07/21 16:49:25 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,25 @@ static int	print_pos(char *str, t_token *token)
 	char	*str_new;
 	int		res;
 
-	sign = 0;
+	sign = '\0';
 	res = 0;
-	if ((token->flags & F_PLUS) == F_PLUS)
-		sign = '+';
 	if ((token->flags & F_SPACE) == F_SPACE)
 		sign = ' ';
+	if ((token->flags & F_PLUS) == F_PLUS)
+		sign = '+';
 	if (((token->flags & F_ZERO) == F_ZERO) &&
-		((token->flags & F_MINUS)) == F_MINUS)
+		((token->flags & F_MINUS)) != F_MINUS)
 	{
 		sign != '\0' ? res += ft_putchar(sign) : (0);
 		res += print_without_flag(str, token->width - (sign != '\0'), -1, '0');
 	}
 	else
 	{
-		str_new = ft_strjoin(gen_str(sign, 1), str);
+		str_new = ft_chjoinstr(sign, str);
 		res += ((token->flags & F_MINUS) == F_MINUS) ?
 			print_with_flag(str_new, token->width, -1, ' ') :
 			print_without_flag(str_new, token->width, -1, ' ');
-		free(str_new);
+		ft_strdel(&str_new);
 	}
 	return (res);
 }
@@ -73,7 +73,7 @@ static int	print_pos_prec(char *str, t_token *token)
 	token->flags = token->flags & (~F_ZERO);
 	if (token->precision <= l)
 		return (print_pos(str, token));
-	temp = ft_strjoin(gen_str(token->precision - l, '0'), str);
+	temp = ft_nchjoinstr(str, '0', token->precision - l);
 	res = print_pos(temp, token);
 	free(temp);
 	return (res);
@@ -90,8 +90,8 @@ static int	print_neg_prec(char *str, t_token *token)
 	l = ft_strlen(str) - 1;
 	if (token->precision <= l)
 		return (print_neg(str, token));
-	temp = ft_strjoin(gen_str(token->precision - l, '0'), str + 1);
-	temp1 = ft_strjoin(gen_str(1, '-'), temp);
+	temp = ft_nchjoinstr(str + 1, '0', token->precision - l);
+	temp1 = ft_chjoinstr('-', temp);
 	res = print_neg(temp1, token);
 	free(temp);
 	free(temp1);

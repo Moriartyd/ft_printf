@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 16:12:16 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/21 02:48:18 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/07/21 17:12:00 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static char		*ft_itoa_uhex(size_t num, char spec)
 	if (spec == S_BHEX)
 		alpha = "0123456789ABCDEF";
 	if (num == 0)
-		return (ft_strdup_safe("0"));
+		return (ft_strdup("0"));
 	len = ft_num_len_base(num, 16);
 	res = ft_strnew(len--);
 	while (num)
@@ -76,7 +76,8 @@ int				print_hex(size_t n, t_token *token)
 	char	*str;
 	int		res;
 
-	token->flags = token->flags & (~F_PLUS & ~F_SPACE);
+	token->flags = token->flags & (~F_PLUS);
+	token->flags = token->flags & (~F_SPACE);
 	if (!n && token->precision == 0)
 		print_num("", token, 1);
 	if (!(str = ft_itoa_uhex(n, token->spec)))
@@ -85,5 +86,6 @@ int				print_hex(size_t n, t_token *token)
 	token->precision = -1;
 	res = print_num(str, token, 1);
 	ft_strdel(&str);
+	//ft_putstr("\nSTOP\n");
 	return (res);
 }

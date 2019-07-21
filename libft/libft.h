@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 22:32:08 by cpollich          #+#    #+#             */
-/*   Updated: 2019/06/04 20:07:58 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/07/21 16:15:14 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,12 @@ int		ft_putstr_until(const char *str, int c);
 **	STR block
 */
 
-char	*ft_strdup_safe(const char *s1);
+char	*ft_strdup(const char *s1);
 size_t	ft_strlen(const char *str);
 void	ft_strdel(char **as);
 char	*ft_itoa_base(int num, int base);
 char	*ft_itoa_ubase(size_t num, int base);
+char	*ft_ltoa_base(long long int n, int base);
 char	*ft_strnew(size_t size);
 char	*ft_strncpy(char *dst, const char *src, size_t len);
 char	*ft_strcpy(char *dst, const char *src);

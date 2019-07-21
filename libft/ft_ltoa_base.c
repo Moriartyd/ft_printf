@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_ltoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/31 14:45:45 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/21 16:09:21 by cpollich         ###   ########.fr       */
+/*   Created: 2019/07/21 16:10:32 by cpollich          #+#    #+#             */
+/*   Updated: 2019/07/21 16:16:38 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,30 +22,27 @@ static int	ft_num_len_base(int num, int base)
 	return (i);
 }
 
-char		*ft_itoa_base(int num, int base)
+char	*ft_ltoa_base(long long int n, int base)
 {
-	long	n;
-	int		i;
-	char	*str;
-	int		sign;
+	char			*hex;
+	int				i;
+	int				l;
+	char			*res;
 
-	sign = (num < 0) ? -1 : 1;
-	i = ft_num_len_base(num, base);
-	n = (num < 0 ? -(long long)num : (long long)num);
-	if (num < 0)
-		n = -(long)num;
-	else
-		n = (long)num;
-	if (!(str = malloc(sizeof(char) * (i + 1))))
-		return (NULL);
-	str[i] = '\0';
+	if (n == (-9223372036854775807 - 1) && base == 10)
+		return (ft_strdup("-9223372036854775808"));
+	if (n == 0)
+		return (ft_strdup("0"));
+	i = 0;
+	hex = "0123456789abcdef";
+	l = ft_num_len_base(n > 0 ? n : -n, base) + ((n < 0 && base == 10) ? 1 : 0);
+	res = ft_strnew(l);
+	(n < 0 && base == 10) ? res[i++] = '-' : (0);
+	n < 0 ? n *= -1 : (0);
 	while (n)
 	{
-		str[i - 1] = (n % base >= 10) ? n % base + 55 : n % base + '0';
+		res[--l] = hex[n % base];
 		n /= base;
-		i--;
 	}
-	if (sign == -1)
-		str[0] = '-';
-	return (str);
+	return (res);
 }
