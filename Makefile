@@ -27,7 +27,8 @@ SRCC	=	ft_printf.c\
 			print_pointer.c\
 			print_string.c\
 			helper.c\
-			print_num.c
+			print_num.c\
+			print_unsigned.c
 
 OBJS = $(addprefix $(OBJ)/,$(SRCC:%.c=%.o))
 LIBFT_LIB = $(LIBFT)/libft.a

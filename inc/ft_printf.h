@@ -80,6 +80,7 @@ int				print_char(char c, t_token *token);
 int				print_string(char *ap, t_token *token);
 int				print_octal(size_t n, t_token *token);
 int				print_hex(size_t n, t_token *token);
+int				print_unsigned(unsigned long long u, t_token *token);
 
 /*
 **	Helper funcs

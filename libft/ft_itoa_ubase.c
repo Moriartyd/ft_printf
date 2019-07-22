@@ -28,6 +28,8 @@ char		*ft_itoa_ubase(size_t num, int base)
 	int		i;
 	char	*str;
 
+	if (!num)
+		return (ft_strdup("0"));
 	i = ft_num_len_base(num, base);
 	n = num;
 	if (!(str = malloc(sizeof(char) * (i + 1))))

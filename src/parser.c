@@ -103,5 +103,7 @@ int				do_tok(const char *form, va_list vargs, int *i)
 		return (print_octal(va_arg(vargs, unsigned long int), &token));
 	else if (token.spec == S_HEX || token.spec == S_BHEX)
 		return (print_hex(va_arg(vargs, unsigned long int), &token));
+	else if (token.spec == S_UNSIGNED)
+		return (print_unsigned(va_arg(vargs, unsigned long long int), &token));
 	return (0);
 }

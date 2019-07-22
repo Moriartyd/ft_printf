@@ -28,11 +28,11 @@ static char		*ft_itoa_uhex(size_t num, char spec)
 	char	*res;
 	int		len;
 
+	if (num == 0)
+		return (ft_strdup("0"));
 	alpha = "0123456789abcdef";
 	if (spec == S_BHEX)
 		alpha = "0123456789ABCDEF";
-	if (num == 0)
-		return (ft_strdup("0"));
 	len = ft_num_len_base(num, 16);
 	res = ft_strnew(len--);
 	while (num)
@@ -86,6 +86,5 @@ int				print_hex(size_t n, t_token *token)
 	token->precision = -1;
 	res = print_num(str, token, 1);
 	ft_strdel(&str);
-	//ft_putstr("\nSTOP\n");
 	return (res);
 }
