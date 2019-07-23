@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 16:12:16 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/21 17:12:00 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/07/22 21:01:35 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ static void		parsing(size_t num, t_token *token, char **str, int len)
 		token->flags = token->flags & (~F_ZERO);
 	}
 	if ((token->flags & F_ZERO) == F_ZERO && token->precision == -1
-		&& num && (token->flags & F_MINUS) == F_MINUS)
+		&& num != 0 && (token->flags & F_MINUS) != F_MINUS)
 	{
 		tmp = ft_nchjoinstr(*str, '0', token->width - len -
 			((token->flags & F_SHARP) == F_SHARP) * 2);
-		free(*str);
+		ft_strdel(str);
 		*str = tmp;
 	}
 	if ((token->flags & F_SHARP) == F_SHARP && num)
@@ -78,9 +78,9 @@ int				print_hex(size_t n, t_token *token)
 
 	token->flags = token->flags & (~F_PLUS);
 	token->flags = token->flags & (~F_SPACE);
-	if (!n && token->precision == 0)
-		print_num("", token, 1);
-	if (!(str = ft_itoa_uhex(n, token->spec)))
+	if (n == 0 && token->precision == 0)
+		return (print_num("", token, 1));
+	if (!(str = ft_itoa_uhex(cast_to_flag(n, token), token->spec)))
 		return (0);
 	parsing(n, token, &str, ft_strlen(str));
 	token->precision = -1;

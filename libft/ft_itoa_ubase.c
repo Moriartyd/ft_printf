@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa_ubase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 20:47:25 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/20 20:47:26 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/07/23 16:13:25 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_num_len_base(size_t num, int base)
+static int	ft_num_len_base(unsigned long long int num, int base)
 {
 	int i;
 

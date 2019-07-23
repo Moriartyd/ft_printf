@@ -6,13 +6,13 @@
 /*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/21 16:10:32 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/21 16:16:38 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/07/23 16:13:41 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_num_len_base(int num, int base)
+static int	ft_num_len_base(unsigned long long int num, int base)
 {
 	int i;
 

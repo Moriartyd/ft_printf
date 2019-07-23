@@ -6,7 +6,7 @@
 #    By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/16 18:22:40 by cpollich          #+#    #+#              #
-#    Updated: 2019/07/21 01:58:26 by cpollich         ###   ########.fr        #
+#    Updated: 2019/07/23 15:56:27 by cpollich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,5 +63,5 @@ norm:
 	norminette
 
 test:
-	@@gcc main.c src/*.c libft/*.c -o libftprintf.a -I./inc -I./libft
+	@@gcc -g main.c src/*.c libft/*.c -o libftprintf.a -I./inc -I./libft
 	@@./libftprintf.a

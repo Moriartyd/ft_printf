@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 20:32:55 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/21 16:44:55 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/07/22 21:21:11 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		print_without_flag(char *str, int w, int p, char c)
 	int j;
 
 	len = ft_strlen(str);
-	p == -1 ? (l = len) : (l = p);
+	l = (p == -1) ? len : p;
 	if (p != -1)
 		l = (len > p) ? p : len;
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 14:43:16 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/21 16:49:25 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/07/22 21:11:47 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	print_pos(char *str, t_token *token)
 		str_new = ft_chjoinstr(sign, str);
 		res += ((token->flags & F_MINUS) == F_MINUS) ?
 			print_with_flag(str_new, token->width, -1, ' ') :
-			print_without_flag(str_new, token->width, -1, ' ');
+				print_without_flag(str_new, token->width, -1, ' ');
 		ft_strdel(&str_new);
 	}
 	return (res);
@@ -75,7 +75,7 @@ static int	print_pos_prec(char *str, t_token *token)
 		return (print_pos(str, token));
 	temp = ft_nchjoinstr(str, '0', token->precision - l);
 	res = print_pos(temp, token);
-	free(temp);
+	ft_strdel(&temp);
 	return (res);
 }
 
@@ -93,8 +93,8 @@ static int	print_neg_prec(char *str, t_token *token)
 	temp = ft_nchjoinstr(str + 1, '0', token->precision - l);
 	temp1 = ft_chjoinstr('-', temp);
 	res = print_neg(temp1, token);
-	free(temp);
-	free(temp1);
+	ft_strdel(&temp);
+	ft_strdel(&temp1);
 	return (res);
 }
 

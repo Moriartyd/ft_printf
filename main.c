@@ -2,8 +2,8 @@
 
 int	main()
 {
-	printf("|%d|", ft_printf("before %X after", 42));
+	printf("|%d|",ft_printf("%#.3o", 1));
 	printf("\n");
-	printf("|%d|", printf("before %X after", 42));
+	printf("|%d|", printf("%#.3o", 1));
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 19:37:26 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/20 21:45:46 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/07/23 17:19:20 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	ft_printf(const char *form, ...)
 			ret += do_tok(form + i + 1, vargs, &i);
 		else
 		{
+			j = 0;
 			j += ft_putstr_until((char *)form + i, '%');
 			ret += j;
 			i += j - 1;
