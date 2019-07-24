@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 20:26:15 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/24 18:30:35 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/07/24 19:40:27 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static int		parse_tok(const char *form, t_token *token)
 	if ((flag = length_flag(form, &i)))
 		token->flags = token->flags | flag;
 	token->spec = form[i];
-	return (i);
+	return (token->spec ? i : -1);
 }
 
 int				do_tok(const char *form, va_list vargs, int *i)

@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 22:32:08 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/24 18:29:46 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/07/24 19:04:09 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 int		ft_putchar(char c);
 int		ft_putstr(const char *str);
 int		ft_putnbr(int n);
-int		ft_putstr_until(const char *str, int c);
+int		ft_putstr_until(const char *str, char c);
 
 /*
 **	STR block

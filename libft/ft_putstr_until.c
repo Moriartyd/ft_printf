@@ -6,13 +6,13 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/16 18:32:02 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/24 18:27:34 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/07/24 19:36:23 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_putstr_until(const char *str, int c)
+int		ft_putstr_until(const char *str, char c)
 {
 	int i;
 

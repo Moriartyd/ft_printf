@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 16:11:30 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/24 18:34:20 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/07/24 18:49:47 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ int				print_octal(size_t n, t_token *token)
 		return (0);
 	if ((token->flags & F_SHARP) == F_SHARP)
 	{
-		token->precision = ((n == 0 && token->precision == 0) ? -1 : 0);
-		if (!n)
+		(n == 0 && token->precision == 0) ? token->precision = -1 : 0;
+		if (n == 0)
 			res = print_num(str, token, 1);
 		else
 		{
