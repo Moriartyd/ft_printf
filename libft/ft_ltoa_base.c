@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ltoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/21 16:10:32 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/23 16:13:41 by cpollich         ###   ########.fr       */
+/*   Created: 2019/07/24 18:25:50 by cpollich          #+#    #+#             */
+/*   Updated: 2019/07/24 18:26:35 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_num_len_base(unsigned long long int num, int base)
+static int	ft_num_len_base(long long int num, int base)
 {
 	int i;
 
@@ -22,7 +22,7 @@ static int	ft_num_len_base(unsigned long long int num, int base)
 	return (i);
 }
 
-char	*ft_ltoa_base(long long int n, int base)
+char		*ft_ltoa_base(long long int n, int base)
 {
 	char			*hex;
 	int				i;
