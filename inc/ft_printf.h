@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 20:46:40 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/24 18:24:58 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/07/24 20:34:49 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,12 @@ typedef struct	s_token
 	int			flags;
 }				t_token;
 
+typedef struct 	s_double
+{
+	/* data */
+}				t_double;
+
+
 int				ft_printf(const char *form, ...);
 int				do_tok(const char *form, va_list vargs, int *i);
 int				print_num(char *str, t_token *token, int sign);
@@ -81,6 +87,7 @@ int				print_string(char *ap, t_token *token);
 int				print_octal(size_t n, t_token *token);
 int				print_hex(size_t n, t_token *token);
 int				print_unsigned(unsigned long long u, t_token *token);
+int				print_float(double nbr, t_token *token);
 
 /*
 **	Helper funcs
