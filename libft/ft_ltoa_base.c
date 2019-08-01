@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ltoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 18:25:50 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/24 18:26:35 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/08/01 14:15:46 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ char		*ft_ltoa_base(long long int n, int base)
 	i = 0;
 	hex = "0123456789abcdef";
 	l = ft_num_len_base(n > 0 ? n : -n, base) + ((n < 0 && base == 10) ? 1 : 0);
-	res = ft_strnew(l);
+	if (!(res = ft_strnew(l)))
+		return (NULL);
 	(n < 0 && base == 10) ? res[i++] = '-' : (0);
 	n < 0 ? n *= -1 : (0);
 	while (n)

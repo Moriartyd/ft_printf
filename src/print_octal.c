@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_octal.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 16:11:30 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/24 18:49:47 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/08/01 14:13:18 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ static char		*ft_itoa_uoct(size_t num)
 		return (ft_strdup("0"));
 	alpha = "01234567";
 	len = ft_num_len_base(num, 8);
-	res = ft_strnew(len--);
+	if (!(res = ft_strnew(len--)))
+		return (NULL);
 	while (num)
 	{
 		res[len--] = alpha[num % 8];

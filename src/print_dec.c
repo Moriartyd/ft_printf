@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_dec.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 14:43:58 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/24 18:30:00 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/08/01 14:16:51 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	print_dec(long long int n, t_token *token)
 		print = ft_ltoa_base((size_t)n, 10);
 	else
 		print = ft_ltoa_base((int)n, 10);
+	if (!print)
+		return (0);
 	ret = print_num(print, token, print[0] != '-');
 	ft_strdel(&print);
 	return (ret);

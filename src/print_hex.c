@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_hex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 16:12:16 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/24 18:30:07 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/08/01 14:14:19 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ static char		*ft_itoa_uhex(size_t num, char spec)
 	if (spec == S_BHEX)
 		alpha = "0123456789ABCDEF";
 	len = ft_num_len_base(num, 16);
-	res = ft_strnew(len--);
+	if (!(res = ft_strnew(len--)))
+		return (NULL);
 	while (num)
 	{
 		res[len--] = alpha[num % 16];
