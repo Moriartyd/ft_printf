@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 22:32:08 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/24 19:04:09 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/08/01 17:21:48 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ char	*ft_strcpy(char *dst, const char *src);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strjoin_leak(char const *s1, char const *s2);
 char	*ft_strcat(char *s1, const char *s2);
+char	*ft_strsub(char const *s, unsigned int start, size_t len);
 
 /*
 **	MEMORY block
@@ -56,6 +57,7 @@ void	ft_bzero(void *s, size_t n);
 **  OTHER
 */
 
+int		ft_abs(int c);
 int		ft_isdigit(int c);
 
 #	endif

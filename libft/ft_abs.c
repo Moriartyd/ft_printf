@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_float.c                                      :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: jjory-ca <jjory-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/22 16:57:39 by jjory-ca          #+#    #+#             */
-/*   Updated: 2019/08/01 14:11:37 by cpollich         ###   ########.fr       */
+/*   Created: 2019/08/01 16:12:53 by jjory-ca          #+#    #+#             */
+/*   Updated: 2019/08/01 16:12:57 by jjory-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-// int			print_float(double nbr, t_token *token)
-// {
-// 	char	*str;
-
-// 	token->precision == -1 ? token->precision = 6 : 0;
-// 	str = ft_ftoa();
-// }
+int	ft_abs(int c)
+{
+	return ((c < 0) ? (-c) : (c));
+}

@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/24 18:39:59 by cpollich          #+#    #+#             */
-/*   Updated: 2019/08/01 17:36:46 by cpollich         ###   ########.fr       */
+/*   Created: 2019/08/01 17:20:40 by cpollich          #+#    #+#             */
+/*   Updated: 2019/08/01 17:20:44 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-// void *malloc(size_t size)
-// {
-// 	size = 0;
-// 	return (NULL);
-// }
-
-int	main(void)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	int i = 32;
-	void *p = &i;
-	printf("|%d|", ft_printf("%f", 0/1));
-	printf("\n");
-	printf("|%d|", printf("%f", 0/0));
-	return (0);
+	size_t	i;
+	char	*sub;
+
+	if (s == NULL)
+		return (NULL);
+	i = 0;
+	sub = (char *)malloc(sizeof(char) * (len + 1));
+	if (sub == NULL)
+		return (NULL);
+	while (i < len)
+	{
+		sub[i] = s[start + i];
+		i++;
+	}
+	sub[i] = '\0';
+	return (sub);
 }
