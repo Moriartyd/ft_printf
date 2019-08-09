@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+         #
+#    By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/16 18:22:40 by cpollich          #+#    #+#              #
-#    Updated: 2019/08/01 17:23:56 by cpollich         ###   ########.fr        #
+#    Updated: 2019/08/09 20:26:59 by cpollich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ SRCC	=	ft_printf.c\
 			print_num.c\
 			print_unsigned.c\
 			float_dec.c float_div.c float_help.c float_round.c float_sign.c float_str.c\
-			float_sum.c float_width.c ft_print_float.c
+			float_sum.c float_width.c ft_print_float.c kostyl.c
 
 OBJS = $(addprefix $(OBJ)/,$(SRCC:%.c=%.o))
 LIBFT_LIB = $(LIBFT)/libft.a

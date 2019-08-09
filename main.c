@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 18:39:59 by cpollich          #+#    #+#             */
-/*   Updated: 2019/08/01 17:36:46 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/08/09 20:21:41 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@
 
 int	main(void)
 {
-	int i = 32;
-	void *p = &i;
-	printf("|%d|", ft_printf("%f", 0/1));
+	printf("|%d|", ft_printf("%f", 0.0 / 0.0));
 	printf("\n");
-	printf("|%d|", printf("%f", 0/0));
+	printf("|%d|", printf("%#f", -0.0 / 0.0));
 	return (0);
 }

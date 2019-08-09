@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   float_div.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/27 12:52:47 by jjory-ca          #+#    #+#             */
-/*   Updated: 2019/08/01 17:18:04 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/08/09 19:04:06 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,13 @@ void			pos_pow(t_bignum **n, int power, t_bignum *(*f)(t_bignum *))
 {
 	t_bignum	*tmp;
 	int			i;
+	int			power_abs;
 
-	i = -1;
-	while (++i < ft_abs(power))
+	i = 0;
+	power_abs = ft_abs(power);
+	while (i < power_abs)
 	{
+		i++;
 		tmp = (*f)(*n);
 		big_num_destroy(n);
 		*n = tmp;

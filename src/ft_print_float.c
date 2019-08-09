@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_float.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/16 17:10:15 by mbeahan           #+#    #+#             */
-/*   Updated: 2019/08/01 17:37:57 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/08/09 19:55:45 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ int				default_float(t_token *list, double arg)
 	char		*str;
 	char		*floatt;
 
+	if (check_for_kostyl(arg))
+		return (kostyl(arg, list));
 	sign = '\0';
 	if (list->precision == -1)
 		list->precision = 6;
@@ -89,6 +91,8 @@ int				long_float(t_token *list, long double arg)
 	char		*str;
 	char		*floatt;
 
+	if (check_for_kostyl(arg))
+		return (kostyl(arg, list));
 	sign = '\0';
 	if (list->precision == -1)
 		list->precision = 6;

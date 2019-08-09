@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjory-ca <jjory-ca@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 20:46:40 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/30 21:10:48 by jjory-ca         ###   ########.fr       */
+/*   Updated: 2019/08/09 19:54:44 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,16 @@
 # define F_J (1 << 9)
 # define F_Z (1 << 10)
 # define F_BL (1 << 11)
+
+/*
+**	defining kostyl
+*/
+
+// # define K_ZERO 0 / 0
+// # define K_MZERO -0 / 0
+// # define K_EDIN 1 / 0
+// # define K_MEDIN -1 / 0
+// # define K_ZZERO 0 / 0
 
 typedef struct			s_token
 {
@@ -166,5 +176,7 @@ int						print_with_flag(char *str, int w, int p, char c);
 char					*ft_nchjoinstr(char *str, char c, int n);
 char					*ft_chjoinstr(char c, char *str);
 size_t					cast_to_flag(size_t n, t_token *tok);
+int						check_for_kostyl(long double n);
+int 					kostyl(long double n, t_token *tok);
 
 #endif
