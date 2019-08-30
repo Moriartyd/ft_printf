@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/24 18:39:59 by cpollich          #+#    #+#             */
-/*   Updated: 2019/08/09 20:21:41 by cpollich         ###   ########.fr       */
+/*   Created: 2019/08/30 20:09:03 by cpollich          #+#    #+#             */
+/*   Updated: 2019/08/30 20:09:20 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-// void *malloc(size_t size)
-// {
-// 	size = 0;
-// 	return (NULL);
-// }
-
-int	main(void)
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	printf("|%d|", ft_printf("%f", 0.0 / 0.0));
-	printf("\n");
-	printf("|%d|", printf("%#f", -0.0 / 0.0));
-	return (0);
+	size_t	i;
+	size_t	j;
+
+	i = -1;
+	while (s1[++i])
+		;
+	j = -1;
+	while (s2[++j] && n > 0)
+	{
+		s1[i] = s2[j];
+		i++;
+		n--;
+	}
+	s1[i] = '\0';
+	return (s1);
 }

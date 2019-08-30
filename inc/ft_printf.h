@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 20:46:40 by cpollich          #+#    #+#             */
-/*   Updated: 2019/08/09 19:54:44 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/08/30 20:12:56 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,6 @@
 **	defining kostyl
 */
 
-// # define K_ZERO 0 / 0
-// # define K_MZERO -0 / 0
-// # define K_EDIN 1 / 0
-// # define K_MEDIN -1 / 0
-// # define K_ZZERO 0 / 0
-
 typedef struct			s_token
 {
 	char				spec;
@@ -100,6 +94,13 @@ union
 		__uint128_t		sign:1;
 	}					t_double;
 }						t;
+
+typedef struct			s_doubled
+{
+	char				sign;
+	int					exponent;
+	char				*mantissa;
+}						t_doubled;
 
 int						ft_printf(const char *form, ...);
 int						do_tok(const char *form, va_list vargs, int *i);
@@ -167,6 +168,15 @@ void					int_dec_mult(t_string *n, t_string *res, char rem);
 int						long_float(t_token *list, long double arg);
 int						parce_tok_float(t_token token, va_list vargs);
 void					rround(t_bignum **num, int precision);
+char					*round_dbl(char **s, int p);
+int						print_double(double n, t_token *tok);
+char					*dbl_to_str(double d);
+char					*get_frac_from_bin(char *s);
+char					*get_int_from_bin(char *s);
+char					*str_add_fraction(char **s1, char *s2);
+char					*str_add_int(char **s1, char *s2, int flag);
+char					*str_div2(char **str);
+
 /*
 **	Helper funcs
 */
@@ -175,8 +185,9 @@ int						print_without_flag(char *str, int w, int p, char c);
 int						print_with_flag(char *str, int w, int p, char c);
 char					*ft_nchjoinstr(char *str, char c, int n);
 char					*ft_chjoinstr(char c, char *str);
+char					*ft_strjoinnch(char *str, char c, int n);
 size_t					cast_to_flag(size_t n, t_token *tok);
 int						check_for_kostyl(long double n);
-int 					kostyl(long double n, t_token *tok);
+int						kostyl(long double n, t_token *tok);
 
 #endif
