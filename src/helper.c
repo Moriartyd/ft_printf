@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   helper.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 20:32:55 by cpollich          #+#    #+#             */
-/*   Updated: 2019/07/24 18:32:23 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/02 16:53:13 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,59 +53,19 @@ int		print_without_flag(char *str, int w, int p, char c)
 	return (i);
 }
 
-char	*ft_chjoinstr(char c, char *str)
-{
-	char	*res;
-	int		i;
-
-	if (!str)
-		return (NULL);
-	if (c == '\0')
-		return (ft_strdup(str));
-	res = ft_strnew(ft_strlen(str) + 1);
-	if (!res)
-		return (NULL);
-	i = 0;
-	res[0] = c;
-	while (str[i])
-	{
-		res[i + 1] = str[i];
-		i++;
-	}
-	return (res);
-}
-
-char	*ft_nchjoinstr(char *str, char c, int n)
-{
-	char	*res;
-	int		i;
-	int		j;
-
-	if (n < 0)
-		return (ft_strdup(str));
-	res = ft_strnew(ft_strlen(str) + n);
-	j = -1;
-	while (n--)
-		res[++j] = c;
-	i = -1;
-	while (str[++i])
-		res[++j] = str[i];
-	return (res);
-}
-
 size_t	cast_to_flag(size_t n, t_token *tok)
 {
-	if ((tok->flags & F_HH) == F_HH)
-		return ((unsigned char)n);
-	else if ((tok->flags & F_H) == F_H)
-		return ((unsigned short)n);
-	else if ((tok->flags & F_L) == F_L)
-		return ((unsigned long)n);
-	else if ((tok->flags & F_LL) == F_LL)
-		return ((unsigned long long)n);
-	else if ((tok->flags & F_J) == F_J)
-		return ((intmax_t)n);
-	else if ((tok->flags & F_Z) == F_Z)
-		return ((size_t)n);
-	return ((unsigned int)n);
+		if ((tok->flags & F_HH) == F_HH)
+			return ((unsigned char)n);
+		else if ((tok->flags & F_H) == F_H)
+			return ((unsigned short)n);
+		else if ((tok->flags & F_L) == F_L)
+			return ((unsigned long)n);
+		else if ((tok->flags & F_LL) == F_LL)
+			return ((unsigned long long)n);
+		else if ((tok->flags & F_J) == F_J)
+			return ((intmax_t)n);
+		else if ((tok->flags & F_Z) == F_Z)
+			return ((size_t)n);
+		return ((unsigned int)n);
 }

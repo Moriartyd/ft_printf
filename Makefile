@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+         #
+#    By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/16 18:22:40 by cpollich          #+#    #+#              #
-#    Updated: 2019/08/30 20:04:01 by cpollich         ###   ########.fr        #
+#    Updated: 2019/09/02 19:56:08 by cpollich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,6 +65,5 @@ re: fclean all
 norm:
 	norminette
 
-test:
-	@@gcc -g main.c src/*.c libft/*.c -o libftprintf.a -I./inc -I./libft
-	@@./libftprintf.a
+test: $(LIBFT)
+	@gcc -g -Wall -Wextra -Werror main.c src/*.c $(LIBFT_LIB) -I./inc -I./libft -o test

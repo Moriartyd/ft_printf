@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   float_sign.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/27 12:48:16 by jjory-ca          #+#    #+#             */
-/*   Updated: 2019/08/01 17:18:28 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/02 18:57:44 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void			width_insert(t_token *list, char **substr)
 	char	*new_str;
 
 	c = ' ';
+	if ((list->flags & F_MINUS) == F_MINUS)
+		list->flags = list->flags & ~F_ZERO;
 	width = list->width - ft_strlen(*substr);
 	if (width <= 0)
 		return ;

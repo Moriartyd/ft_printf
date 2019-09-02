@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_hex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 16:12:16 by cpollich          #+#    #+#             */
-/*   Updated: 2019/08/01 17:22:05 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/02 17:32:31 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ int				print_hex(size_t n, t_token *token)
 	if (!(str = ft_itoa_uhex(cast_to_flag(n, token), token->spec)))
 		return (0);
 	parsing(n, token, &str, ft_strlen(str));
+	if (token->precision != -1 && (token->flags & F_ZERO) == F_ZERO)
+		token->flags = token->flags & ~F_ZERO;
 	token->precision = -1;
 	res = print_num(str, token, 1);
 	ft_strdel(&str);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dbl_to_str.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 19:47:06 by cpollich          #+#    #+#             */
-/*   Updated: 2019/08/30 20:12:43 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/02 18:29:30 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,12 +95,12 @@ char				*dbl_to_str(double d)
 	inte = ft_copyuntil(dbl->mantissa, '.');
 	frac = ft_strchr(dbl->mantissa, '.');
 	res = get_int_from_bin(inte);
-	free(inte);
+	ft_strdel(&inte);
 	inte = res;
 	res = get_frac_from_bin(frac);
 	frac = res;
 	res = ft_strjoin(inte, frac);
-	free(inte);
+	ft_strdel(&inte);
 	free(frac);
 	free(dbl->mantissa);
 	free(dbl);

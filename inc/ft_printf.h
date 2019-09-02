@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 20:46:40 by cpollich          #+#    #+#             */
-/*   Updated: 2019/08/30 20:12:56 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/02 19:30:38 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,8 +183,6 @@ char					*str_div2(char **str);
 
 int						print_without_flag(char *str, int w, int p, char c);
 int						print_with_flag(char *str, int w, int p, char c);
-char					*ft_nchjoinstr(char *str, char c, int n);
-char					*ft_chjoinstr(char c, char *str);
 char					*ft_strjoinnch(char *str, char c, int n);
 size_t					cast_to_flag(size_t n, t_token *tok);
 int						check_for_kostyl(long double n);

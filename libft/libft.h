@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 22:32:08 by cpollich          #+#    #+#             */
-/*   Updated: 2019/08/30 20:09:29 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/02 17:36:47 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strjoin_leak(char const *s1, char const *s2);
 char	*ft_strcat(char *s1, const char *s2);
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
+char	*ft_nchjoinstr(char *str, char c, int n);
+char	*ft_chjoinstr(char c, char *str);
 char	*ft_strchr(const char *s, int c);
 int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strshift(char **str, size_t n);

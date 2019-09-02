@@ -3,3 +3,8 @@ a.out
 .DS_Store
 main.cpft/
 pft/
+*.dSYM
+libftprintf.a
+printf-unit-test/
+obj/
+main.c

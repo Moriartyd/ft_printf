@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_double.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 19:46:57 by cpollich          #+#    #+#             */
-/*   Updated: 2019/08/30 19:50:51 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/02 17:42:34 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,6 @@ char		*ft_strjoinnch(char *str, char c, int n)
 	while (n--)
 		res[i++] = c;
 	return (res);
-}
-
-char		*ft_strchr(const char *s, int c)
-{
-	int i;
-
-	i = -1;
-	while (s[++i])
-		if (s[i] == c)
-			return ((char *)(s + i));
-	if (c == '\0')
-		return ((char *)(s + i));
-	return (NULL);
 }
 
 char		*round_dbl(char **s, int p)

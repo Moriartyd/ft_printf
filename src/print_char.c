@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_char.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 22:04:53 by cpollich          #+#    #+#             */
-/*   Updated: 2019/05/15 22:19:00 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/02 19:58:35 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	print_char(char c, t_token *token)
 	i = 1;
 	if (w < 2)
 		return (ft_putchar(c));
-	if (token->flags && F_MINUS == F_MINUS)
+	if ((token->flags & F_MINUS) == F_MINUS)
 	{
 		ft_putchar(c);
 		while (i < w)

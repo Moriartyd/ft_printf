@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+         #
+#    By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/04 18:21:28 by cpollich          #+#    #+#              #
-#    Updated: 2019/08/30 20:12:01 by cpollich         ###   ########.fr        #
+#    Updated: 2019/09/02 17:36:06 by cpollich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ SRC	=	ft_memalloc.c ft_memset.c ft_bzero.c ft_isdigit.c\
 		ft_strcpy.c ft_strdel.c ft_strdup.c ft_strlen.c ft_strncpy.c\
 		ft_strnew.c ft_itoa_base.c ft_strjoin.c ft_strcat.c ft_strjoin_leak.c\
 		ft_itoa_ubase.c ft_ltoa_base.c ft_abs.c ft_strsub.c ft_strcmp.c\
-		ft_copyuntil.c ft_strchr.c ft_strjoinch.c ft_strncat.c ft_strshift.c
+		ft_copyuntil.c ft_strchr.c ft_strjoinch.c ft_strncat.c ft_strshift.c\
+		ft_chjoinstr.c ft_nchjoinstr.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -26,17 +27,17 @@ F = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
 
 $(OBJ): $(SRC)
-	gcc $F -c $(SRC)
+	@gcc $F -c $(SRC)
 
 clean:
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 

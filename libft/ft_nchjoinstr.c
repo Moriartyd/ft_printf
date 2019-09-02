@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_nchjoinstr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/04 20:06:20 by cpollich          #+#    #+#             */
-/*   Updated: 2019/09/02 18:32:07 by cpollich         ###   ########.fr       */
+/*   Created: 2019/09/02 16:50:14 by cpollich          #+#    #+#             */
+/*   Updated: 2019/09/02 17:33:47 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_nchjoinstr(char *str, char c, int n)
 {
-	char	*str;
+	char	*res;
 	int		i;
 	int		j;
 
-	if (s1 == NULL || s2 == NULL)
-		return (NULL);
-	str = ft_strnew(ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (!str)
-		return (NULL);
-	i = -1;
-	while (s1[++i])
-		str[i] = s1[i];
+	if (n < 0)
+		return (ft_strdup(str));
+	res = ft_strnew(ft_strlen(str) + n);
 	j = -1;
-	while (s2[++j])
-		str[i + j] = s2[j];
-	return (str);
+	while (n--)
+		res[++j] = c;
+	i = -1;
+	while (str[++i])
+		res[++j] = str[i];
+	return (res);
 }
