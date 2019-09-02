@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   float_round.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/27 12:49:44 by jjory-ca          #+#    #+#             */
-/*   Updated: 2019/08/01 17:18:20 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/02 20:34:06 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,18 @@ char		*put_bignum_strings_into_one(t_bignum *num, t_token *lst)
 	char	*temp3;
 
 	if (lst->precision == 0)
+	{
 		str = cust_strdup(&num->int_part);
+		if (((lst->flags & F_SHARP) == F_SHARP) && lst->precision == 0)
+			str = ft_strjoinch(&str, '.');
+	}
 	else
 	{
 		temp = cust_strjoin_left(&num->int_part, ".");
 		temp2 = cust_strdup(&num->frac_part);
 		temp3 = ft_strsub(temp2, 0, lst->precision);
 		str = ft_strjoin_free(temp, temp3, 3);
+		// str = ft_strjoinch(&str, '.');
 		ft_strdel(&temp2);
 	}
 	big_num_destroy(&num);

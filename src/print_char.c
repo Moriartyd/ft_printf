@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 22:04:53 by cpollich          #+#    #+#             */
-/*   Updated: 2019/09/02 19:58:35 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/02 20:07:03 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	print_char(char c, t_token *token)
 		return (ft_putchar(c));
 	if ((token->flags & F_MINUS) == F_MINUS)
 	{
+		token->flags = token->flags & ~F_ZERO;
 		ft_putchar(c);
 		while (i < w)
 			i += ft_putchar((token->flags & F_ZERO) == F_ZERO ? '0' : ' ');

@@ -6,7 +6,7 @@
 #    By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/16 18:22:40 by cpollich          #+#    #+#              #
-#    Updated: 2019/09/02 19:56:08 by cpollich         ###   ########.fr        #
+#    Updated: 2019/09/02 20:47:02 by cpollich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,4 +66,4 @@ norm:
 	norminette
 
 test: $(LIBFT)
-	@gcc -g -Wall -Wextra -Werror main.c src/*.c $(LIBFT_LIB) -I./inc -I./libft -o test
+	@gcc -g -Wall -Wextra main.c $(NAME) $(LIBFT_LIB) -I./inc -I./libft -o test

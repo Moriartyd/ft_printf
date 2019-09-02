@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_float.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/16 17:10:15 by mbeahan           #+#    #+#             */
-/*   Updated: 2019/08/30 19:26:32 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/02 20:40:07 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ int				default_float(t_token *list, double arg)
 	char		*str;
 	char		*floatt;
 
+	if ((list->flags & F_PLUS) == F_PLUS)
+		list->flags = list->flags & ~F_SPACE;
 	if (check_for_kostyl(arg))
 		return (kostyl(arg, list));
 	sign = '\0';
@@ -76,9 +78,9 @@ int				default_float(t_token *list, double arg)
 		sign = num->sign;
 	add_sign_float(sign, &str, list);
 	width_insert(list, &str);
-	if (((list->flags & F_SHARP) == F_SHARP) && list->precision == 0)
-		floatt = ft_strjoin_free(str, ".", 1);
-	else
+	// if (((list->flags & F_SHARP) == F_SHARP) && list->precision == 0)
+	// 	floatt = ft_strjoin_free(str, ".", 1);
+	// else
 		floatt = str;
 	ft_putstr(floatt);
 	return (ft_strlen(floatt));
