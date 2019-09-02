@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_octal.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 16:11:30 by cpollich          #+#    #+#             */
-/*   Updated: 2019/08/01 17:22:51 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/03 00:21:07 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,10 @@ int				print_octal(size_t n, t_token *token)
 	{
 		(n == 0 && token->precision == 0) ? token->precision = -1 : 0;
 		if (n == 0)
-			res = print_num(str, token, 1);
+			res = print_num("0", token, 1);
 		else
 		{
-			str = ft_strjoin_leak("0", str);
+			str = ft_chjoinstr('0', str);
 			res = print_num(str, token, 1);
 		}
 	}
