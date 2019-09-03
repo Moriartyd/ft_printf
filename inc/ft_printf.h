@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 20:46:40 by cpollich          #+#    #+#             */
-/*   Updated: 2019/09/03 12:11:45 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/03 17:46:15 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,6 @@
 # define F_Z (1 << 10)
 # define F_BL (1 << 11)
 
-/*
-**	defining kostyl
-*/
-
 typedef struct			s_token
 {
 	char				spec;
@@ -80,8 +76,8 @@ typedef struct			s_string
 typedef struct			s_bignum
 {
 	char				sign;
-	t_string			int_part;
-	t_string			frac_part;
+	t_string			*int_part;
+	t_string			*frac_part;
 }						t_bignum;
 
 union
@@ -120,28 +116,29 @@ int						print_unsigned(unsigned long long u, t_token *token);
 int						default_float(t_token *list, double arg);
 t_bignum				*get_the_bits(long double arg);
 t_bignum				*big_num_create(void);
-t_string				str_create_size(int size);
+t_string				*str_create_size(int size);
 void					str_pushchar(t_string *s, char c);
 void					str_resize(t_string *s, int new_size);
 void					pos_pow(t_bignum **n, int power,
 							t_bignum *(*f)(t_bignum *));
 void					big_num_destroy(t_bignum **num);
-void					str_destroy(t_string *s);
+void					str_destroy(t_string **s);
+void					str_clean(t_string **s);
 t_bignum				*bin_div(t_bignum *l);
 t_bignum				*bin_mult(t_bignum *l);
-t_string				str_cut(t_string *str, int start, int end);
+t_string				*str_cut(t_string *str, int start, int end);
 void					str_push_cs(t_string *l, t_string *r);
 char					str_at(t_string *s, int idx);
 void					bin_to_dec(t_bignum *num);
 void					do_int_part(t_bignum *num);
 t_bignum				*big_num_create_by_str(char sign, char *int_part,
 						char *frac_part);
-t_string				str_create_str(char *s);
+t_string				*str_create_str(char *s);
 t_bignum				*dec_sum(t_bignum *l, t_bignum *r, int n);
 t_bignum				*dec_mult(t_bignum *n);
-char					frac_sum(t_string l, t_string r,
+char					frac_sum(t_string *l, t_string *r,
 							t_string *res);
-void					int_sum(t_string l, t_string r,
+void					int_sum(t_string *l, t_string *r,
 							t_string *res, char rem);
 char					frac_dec_mult(t_string *n, t_string *res);
 void					swap_comp_str(t_string *s1, t_string *s2);

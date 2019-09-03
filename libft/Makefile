@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+         #
+#    By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/04 18:21:28 by cpollich          #+#    #+#              #
-#    Updated: 2019/09/02 17:36:06 by cpollich         ###   ########.fr        #
+#    Updated: 2019/09/03 15:08:19 by cpollich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRC	=	ft_memalloc.c ft_memset.c ft_bzero.c ft_isdigit.c\
 
 OBJ = $(SRC:.c=.o)
 
-F = -Wall -Wextra -Werror
+F = -g -Wall -Wextra -Werror
 
 all: $(NAME)
 

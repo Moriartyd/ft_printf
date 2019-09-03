@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_float.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/16 17:10:15 by mbeahan           #+#    #+#             */
-/*   Updated: 2019/09/03 12:01:14 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/03 20:43:24 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_bignum		*get_the_bits(long double arg)
 	i = 63;
 	num = big_num_create();
 	t.d_num = (long double)arg;
-	str_pushchar(&num->int_part, (t.t_double.mantissa >> 63 & 1) + 48);
+	str_pushchar(num->int_part, (t.t_double.mantissa >> 63 & 1) + 48);
 	byte = 0;
 	test = t.t_double.sign >> 0 & 1;
 	if ((t.t_double.sign >> 0 & 1) == 0)
@@ -47,7 +47,7 @@ t_bignum		*get_the_bits(long double arg)
 	while (--i >= 0)
 	{
 		byte = t.t_double.mantissa >> i & 1;
-		str_pushchar(&num->frac_part, byte + 48);
+		str_pushchar(num->frac_part, byte + 48);
 	}
 	if (t.t_double.exponent - 16383 > 0)
 		pos_pow(&num, t.t_double.exponent - 16383, bin_mult);
@@ -78,20 +78,19 @@ int				default_float(t_token *list, double arg)
 		sign = num->sign;
 	add_sign_float(sign, &str, list);
 	width_insert(list, &str);
-	ft_putstr(str);
-	res = ft_strlen(str);
+	res = ft_putstr(str);
+	big_num_destroy(&num);
+	num = NULL;
 	ft_strdel(&str);
 	return (res);
 }
-
-// Исправил лик
 
 int				long_float(t_token *list, long double arg)
 {
 	char		sign;
 	t_bignum	*num;
 	char		*str;
-	char		*floatt;
+	size_t		res;
 
 	if (check_for_kostyl(arg))
 		return (kostyl(arg, list));
@@ -106,10 +105,9 @@ int				long_float(t_token *list, long double arg)
 		sign = num->sign;
 	add_sign_float(sign, &str, list);
 	width_insert(list, &str);
-	if (((list->flags & F_SHARP) == F_SHARP) && list->precision == 0)
-		floatt = ft_strjoin_free(str, ".", 1);
-	else
-		floatt = str;
-	ft_putstr(floatt);
-	return (ft_strlen(floatt));
+	res = ft_putstr(str);
+	big_num_destroy(&num);
+	num = NULL;
+	ft_strdel(&str);
+	return (res);
 }

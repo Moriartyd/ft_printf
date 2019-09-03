@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   kostyl.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 19:26:21 by cpollich          #+#    #+#             */
-/*   Updated: 2019/09/02 23:43:20 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/03 14:52:00 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@ int	check_for_kostyl(long double n)
 {
 	if (n == 1 / 0.0 || n == -1 / 0.0)
 		return (1);
-	if (n != n)
+	else if (n != n)
 		return (1);
-	if (!n)
+	else if (!n)
 		return (1);
-	return (0);
+	else
+		return (0);
 }
 
 int	kostyl(long double n, t_token *tok)

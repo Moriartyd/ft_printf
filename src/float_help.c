@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/27 12:52:12 by jjory-ca          #+#    #+#             */
-/*   Updated: 2019/08/01 17:18:15 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/03 17:44:30 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,17 @@ void			do_int_part(t_bignum *num)
 
 	i = -1;
 	sum = big_num_create_by_str('+', "0", "0");
-	while (++i < num->int_part.size)
+	while (++i < num->int_part->size)
 	{
-		str = ft_strdup(&num->int_part.data[i]);
+		str = ft_strdup(&num->int_part->data[i]);
 		str[1] = 0;
 		tmp = big_num_create_by_str('+', str, "0");
 		ft_strdel(&str);
-		pos_pow(&tmp, num->int_part.size - i - 1, dec_mult);
+		pos_pow(&tmp, num->int_part->size - i - 1, dec_mult);
 		sum = dec_sum(sum, tmp, 3);
 	}
-	str_destroy(&num->int_part);
-	str_push_cs(&num->int_part, &sum->int_part);
+	str_clean(&(num->int_part));
+	str_push_cs(num->int_part, sum->int_part);
 	big_num_destroy(&sum);
 }
 
@@ -62,13 +62,13 @@ void			str_push_cs(t_string *l, t_string *r)
 		str_pushchar(l, str_at(r, i));
 }
 
-t_string		str_cut(t_string *str, int start, int end)
+t_string		*str_cut(t_string *str, int start, int end)
 {
-	t_string	new_str;
+	t_string	*new_str;
 
 	new_str = str_create_size(10);
 	start--;
 	while (++start < end && start < str_len(str))
-		str_pushchar(&new_str, str_at(str, start));
+		str_pushchar(new_str, str_at(str, start));
 	return (new_str);
 }

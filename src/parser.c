@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 20:26:15 by cpollich          #+#    #+#             */
-/*   Updated: 2019/09/03 12:11:32 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/03 19:30:46 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static int		parse_tok(const char *form, t_token *token)
 		token->precision = 0;
 	if ((flag = length_flag(form, &i)))
 		token->flags = token->flags | flag;
-	token->spec = form[i];
+	ft_strchr("diouxXscpf%", form[i]) ? token->spec = form[i] : (0);
 	return (token->spec ? i : -1);
 }
 

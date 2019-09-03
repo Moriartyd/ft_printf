@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_char.c                                       :+:      :+:    :+:   */
+/*   ft_str_op.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/15 22:04:53 by cpollich          #+#    #+#             */
-/*   Updated: 2019/09/03 14:15:53 by cpollich         ###   ########.fr       */
+/*   Created: 2019/09/03 17:45:29 by cpollich          #+#    #+#             */
+/*   Updated: 2019/09/03 17:45:42 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_char(char c, t_token *token)
+void			str_clean(t_string **s)
 {
-	int w;
-	int i;
+	if (s && *s)
+	{
+		ft_strdel(&(*s)->data);
+		(*s)->capacity = 0;
+		(*s)->size = 0;
+	}
+}
 
-	w = token->width;
-	i = 1;
-	if (w < 2)
-		return (ft_putchar(c));
-	if ((token->flags & F_MINUS) == F_MINUS)
+void			str_destroy(t_string **s)
+{
+	if (s && *s)
 	{
-		token->flags = token->flags & ~F_ZERO;
-		ft_putchar(c);
-		while (i < w)
-			i += ft_putchar((token->flags & F_ZERO) == F_ZERO ? '0' : ' ');
+		ft_strdel(&(*s)->data);
+		(*s)->capacity = 0;
+		(*s)->size = 0;
+		free(*s);
+		*s = NULL;
 	}
-	else
-	{
-		while (i < w)
-			i += ft_putchar((token->flags & F_ZERO) == F_ZERO ? '0' : ' ');
-		ft_putchar(c);
-	}
-	return (i);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   float_round.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/27 12:49:44 by jjory-ca          #+#    #+#             */
-/*   Updated: 2019/09/03 09:33:02 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/03 18:00:30 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,18 @@ char		*put_bignum_strings_into_one(t_bignum *num, t_token *lst)
 
 	if (lst->precision == 0)
 	{
-		str = cust_strdup(&num->int_part);
+		str = cust_strdup(num->int_part);
 		if (((lst->flags & F_SHARP) == F_SHARP) && lst->precision == 0)
 			str = ft_strjoinch(&str, '.');
 	}
 	else
 	{
-		temp = cust_strjoin_left(&num->int_part, ".");
-		temp2 = cust_strdup(&num->frac_part);
+		temp = cust_strjoin_left(num->int_part, ".");
+		temp2 = cust_strdup(num->frac_part);
 		temp3 = ft_strsub(temp2, 0, lst->precision);
 		str = ft_strjoin_free(temp, temp3, 3);
 		ft_strdel(&temp2);
 	}
-	big_num_destroy(&num);
 	return (str);
 }
 
@@ -81,21 +80,21 @@ void		rround(t_bignum **num, int precision)
 	char		save_sign;
 
 	save_sign = (*num)->sign;
-	put_zeros(precision, &(*num)->frac_part);
-	if (((*num)->frac_part.size > precision &&
-		(*num)->frac_part.data[precision] <= '4') ||
-			!find_digit(&(*num)->frac_part, precision + 1))
+	put_zeros(precision, (*num)->frac_part);
+	if (((*num)->frac_part->size > precision &&
+		(*num)->frac_part->data[precision] <= '4') ||
+			!find_digit((*num)->frac_part, precision + 1))
 		return ;
 	if (precision == 0)
 	{
-		(*num)->int_part.data[(*num)->int_part.size - 1]++;
+		(*num)->int_part->data[(*num)->int_part->size - 1]++;
 		return ;
 	}
 	temp = big_num_create();
-	str_pushchar(&temp->int_part, '0');
+	str_pushchar(temp->int_part, '0');
 	while (precision-- > 1)
-		str_pushchar(&temp->frac_part, '0');
-	str_pushchar(&temp->frac_part, '1');
+		str_pushchar(temp->frac_part, '0');
+	str_pushchar(temp->frac_part, '1');
 	*num = dec_sum(*num, temp, 3);
 	(*num)->sign = save_sign;
 }

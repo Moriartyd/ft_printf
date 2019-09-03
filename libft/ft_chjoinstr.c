@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_chjoinstr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 16:45:03 by cpollich          #+#    #+#             */
-/*   Updated: 2019/09/02 16:45:24 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/03 14:11:44 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_chjoinstr(char c, char *str)
 {
-    char	*res;
+	char	*res;
 	int		i;
 
 	if (!str)
