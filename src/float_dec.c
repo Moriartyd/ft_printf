@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   float_dec.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/27 12:50:27 by jjory-ca          #+#    #+#             */
-/*   Updated: 2019/08/01 17:18:09 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/03 12:09:56 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void			do_frac_part(t_bignum *num)
 	}
 	str_destroy(&num->frac_part);
 	str_push_cs(&num->frac_part, &sum->frac_part);
+	big_num_destroy(&temp);
 	big_num_destroy(&sum);
 }
 

@@ -1,7 +1,7 @@
 a.out
 .DS_Store
 pft/
-*.dSYM
+*.dSYM/
 libftprintf.a
 printf-unit-test/
 obj/

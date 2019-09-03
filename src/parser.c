@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 20:26:15 by cpollich          #+#    #+#             */
-/*   Updated: 2019/09/02 19:31:10 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/03 12:11:32 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,12 +112,15 @@ int				do_tok(const char *form, va_list vargs, int *i)
 
 int				parce_tok_float(t_token token, va_list vargs)
 {
+	int	res;
+
 	if (token.spec == S_FLOAT)
 	{
 		if ((token.flags & F_BL) == F_BL)
-			return (long_float(&token, va_arg(vargs, long double)));
+			res = long_float(&token, va_arg(vargs, long double));
 		else
-			return (default_float(&token, va_arg(vargs, double)));
+			res = default_float(&token, va_arg(vargs, double));
+		return (res);
 	}
 	return (0);
 }

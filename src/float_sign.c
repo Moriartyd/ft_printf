@@ -6,7 +6,7 @@
 /*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/27 12:48:16 by jjory-ca          #+#    #+#             */
-/*   Updated: 2019/09/02 18:57:44 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/03 09:38:45 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,30 +63,31 @@ void			add_sign_float(char sign, char **str, t_token *lst)
 
 char			*ft_strjoin_free(char *s1, char *s2, int n)
 {
-	char	*res;
-	size_t	len1;
-	size_t	len2;
+	char	*str;
+	size_t	i;
+	size_t	j;
 
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	res = NULL;
-	res = ft_strnew(len1 + len2);
-	if (res == NULL)
+	str = ft_strnew(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!str)
 		return (NULL);
-	ft_strcat(res, s1);
-	ft_strcat(res, s2);
+	i = -1;
+	while (s1[++i])
+		str[i] = s1[i];
+	j = -1;
+	while (s2[++j])
+		str[i + j] = s2[j];
 	if (n == 1)
-		free(s1);
+		ft_strdel(&s1);
 	else if (n == 2)
-		free(s2);
+		ft_strdel(&s2);
 	else if (n == 3)
 	{
-		free(s1);
-		free(s2);
+		ft_strdel(&s1);
+		ft_strdel(&s2);
 	}
-	return (res);
+	return (str);
 }
 
 char			*cust_strdup(t_string *src)

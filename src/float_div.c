@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   float_div.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpollich <cpollich@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/27 12:52:47 by jjory-ca          #+#    #+#             */
-/*   Updated: 2019/08/30 19:26:07 by cpollich         ###   ########.fr       */
+/*   Updated: 2019/09/03 12:12:45 by cpollich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,18 +52,23 @@ t_bignum		*bin_div(t_bignum *l)
 
 void			str_destroy(t_string *s)
 {
-	free(s->data);
-	s->data = NULL;
-	s->capacity = 0;
-	s->size = 0;
+	if (s)
+	{
+		ft_strdel(&(s->data));
+		s->capacity = 0;
+		s->size = 0;
+	}
 }
 
 void			big_num_destroy(t_bignum **num)
 {
-	str_destroy(&(*num)->int_part);
-	str_destroy(&(*num)->frac_part);
-	free(*num);
-	*num = NULL;
+	if (num && *num)
+	{
+		str_destroy(&((*num)->int_part));
+		str_destroy(&((*num)->frac_part));
+		free(*num);
+		*num = NULL;
+	}
 }
 
 void			pos_pow(t_bignum **n, int power, t_bignum *(*f)(t_bignum *))
