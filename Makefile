@@ -50,7 +50,7 @@ $(LIBFT_LIB):
 	make -C libft
 
 $(OBJ)/%.o: $(SRC)/%.c
-	gcc -g $F -c $< -I$(INC) -I$(LIBFT_H) -o $@
+	gcc $F -c $< -I$(INC) -I$(LIBFT_H) -o $@
 
 clean:
 	rm -Rf $(OBJ)

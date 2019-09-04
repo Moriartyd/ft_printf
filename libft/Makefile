@@ -22,7 +22,7 @@ SRC	=	ft_memalloc.c ft_memset.c ft_bzero.c ft_isdigit.c\
 
 OBJ = $(SRC:.c=.o)
 
-F = -g -Wall -Wextra -Werror
+F = -Wall -Wextra -Werror
 
 all: $(NAME)
 
