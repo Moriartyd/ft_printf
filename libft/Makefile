@@ -6,7 +6,7 @@
 #    By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/04 18:21:28 by cpollich          #+#    #+#              #
-#    Updated: 2019/09/03 15:08:19 by cpollich         ###   ########.fr        #
+#    Updated: 2019/09/04 18:29:15 by cpollich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
+	@echo "\033[1;32mlibft.a was built\033[0m"
+
 
 $(OBJ): $(SRC)
 	@gcc $F -c $(SRC)

@@ -6,7 +6,7 @@
 #    By: cpollich <cpollich@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/16 18:22:40 by cpollich          #+#    #+#              #
-#    Updated: 2019/09/03 18:28:45 by cpollich         ###   ########.fr        #
+#    Updated: 2019/09/04 18:33:44 by cpollich         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,25 +40,30 @@ LIBFT_H = $(LIBFT)
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT_LIB) $(OBJS)
-	ar rcs $(NAME) $(OBJS) $(LIBFT)/*.o
-	ranlib $(NAME)
+	@ar rcs $(NAME) $(OBJS) $(LIBFT)/*.o
+	@ranlib $(NAME)
+	@echo "\033[1;32mlibftprintf.a was built\033[0m"
 
 $(OBJ):
-	mkdir -p $(OBJ)
+	@mkdir -p $(OBJ)
 
 $(LIBFT_LIB):
-	make -C libft
+	@make -C libft
 
 $(OBJ)/%.o: $(SRC)/%.c
-	gcc $F -c $< -I$(INC) -I$(LIBFT_H) -o $@
+	@gcc $F -c $< -I$(INC) -I$(LIBFT_H) -o $@
 
 clean:
-	rm -Rf $(OBJ)
-	make -C libft clean
+	@rm -Rf $(OBJ)
+	@make -C libft clean
+	@echo "\033[3;36mProject cleaned\033[0m"
+
 
 fclean: clean
-	rm -Rf $(NAME)
-	make -C libft fclean
+	@rm -Rf $(NAME)
+	@make -C libft fclean
+	@echo "\033[3;36mProject fully cleaned\033[0m"
+
 
 re: fclean all
 
